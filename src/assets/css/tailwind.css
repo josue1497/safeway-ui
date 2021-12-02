@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+
+@font-face {
+    font-family: 'Archivo';
+    src: local('Archivo'), url(./../fonts/Archivo.ttf) format('ttf');
+}
+
+@tailwind utilities;

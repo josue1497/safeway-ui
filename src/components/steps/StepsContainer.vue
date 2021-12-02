@@ -1,0 +1,31 @@
+<template>
+    <div class="container mx-auto px-4">
+        <FirstStep v-if="currentStep===1" @next="setStep(2)"></FirstStep>
+        <SecondStep v-if="currentStep===2" @next="setStep(3)" @back="setStep(1)"></SecondStep>
+        <ThirdStep v-if="currentStep===3" @next="setStep(4)" @back="setStep(2)"></ThirdStep>
+        <FourthStep v-if="currentStep===4"></FourthStep>
+    </div>
+</template>
+
+<script>
+    import FirstStep from './FirstStep'
+    import SecondStep from './SecondStep'
+    import ThirdStep from './ThirdStep'
+    import FourthStep from './FourthStep'
+    export default {
+        name: 'StepsContainer',
+        components: { FourthStep, ThirdStep, SecondStep, FirstStep },
+        data: ()=>({
+            currentStep: 1,
+        }),
+        methods: {
+            setStep(step){
+                this.currentStep = step
+            },
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
