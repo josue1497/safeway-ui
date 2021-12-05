@@ -1,6 +1,5 @@
 <template>
-        <!--Card 1-->
-        <div :class="`transition-all duration-200 ease-in-out w-80 rounded overflow-hidden ${active?'shadow-xl border border-gray':''} mx-3 py-4 px-5`" @click="selector">
+        <div :class="`mx-3 py-4 px-5 hover:shadow-xl transform hover:scale-105 cursor-pointer transition-all duration-200 ease-in-out w-80 rounded overflow-hidden ${active?'shadow-xl border border-gray scale-105 ':''}`" @click="selector">
             <div class="w-full h-10 flex align-center justify-center" :style="{
                 background: bannerColor,
                 background: `linear-gradient(58deg, ${bannerColor} 75%, rgba(255,255,255,1) 100%)`
@@ -13,9 +12,9 @@
                     {{ benefit }}
                 </p>
 
-                <div :class="`text-primary font-bold text-3xl my-5 text-base border-t  leading-none p-4 border-primary text-center w-3/4 mx-auto`">
-                    <p class="leading-none ">{{ `$${price}` }}</p>
-                    <p class="text-primary text-sm font-light leading-none ">{{type}}</p>
+                <div :class="`text-primary font-bold text-3xl mt-5 text-base border-t  leading-none pt-4 border-primary text-center w-3/4 mx-auto`">
+                    <p class="font-light leading-none ">{{ `$${price}` }}</p>
+                    <p class="text-primary text-sm font-bold leading-none ">{{type}}</p>
                 </div>
 
             </div>

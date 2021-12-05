@@ -2,9 +2,7 @@
         <div class=" w-full grid grid-cols-12 gap-2">
             <div class="h-48 lg:h-auto lg:w-48 flex text-center overflow-hidden col-span-2" >
                 <label class="cursor-pointer label flex flex-row justify-center items-center w-full h-full">
-                    <p-radio class="p-icon p-round" name="icon" color="primary-o">
-                        <i slot="extra" class="icon mdi mdi-check"></i>
-                    </p-radio>
+                    <BaseInput class="p-icon p-round" name="icon" type="check"/>
                     <img class="w-16 h-16 mx-5 label" src="../../assets/img/travel.png" alt="airplane"/>
                 </label>
             </div>
@@ -25,8 +23,10 @@
 </template>
 
 <script>
+    import BaseInput from './BaseInput'
     export default {
         name: 'PlanSupplement',
+        components: { BaseInput },
         props: {
             name: {type: String, default: 'Unnamed'},
             description: {type: String, default: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of' },

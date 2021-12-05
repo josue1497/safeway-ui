@@ -1,8 +1,10 @@
 <template>
-    <div class="container flex px-8 justify-center flex-col m-5">
+    <div class="container flex px-8 justify-center flex-col m-5 w-3/4 mx-auto">
+        <h1 class="text-xl font-bold text-primary text-center">Proceso de Emision</h1>
         <Stepper :steps="steps" :route="alreadyTraveled" :current="2"></Stepper>
         <form class="mx-auto w-3/4" @submit="() => {return false}">
             <div class="grid grid-cols-2 gap-4 ">
+                <p class="col-span-2 uppercase font-bold">Informacion de cliente:</p>
                 <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
                 <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
                 <BaseInput name="name" mandatory label="Nombre" type="text"></BaseInput>
@@ -15,6 +17,7 @@
             </div>
             <div class="border-b border-gray-300 p-5"></div>
             <div class="grid grid-cols-2 gap-4 mt-10">
+                <p class="col-span-2 uppercase font-bold">Informacion de los beneficiarios:</p>
                 <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
                 <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
             </div>

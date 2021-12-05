@@ -1,8 +1,8 @@
 <template>
     <div class="container mx-auto px-4 flex flex-col justify-center align-center p-6">
-        <h1 class="text-2xl font-bold text-primary text-center">Plan Seleccionado</h1>
-        <h2 class="text-xl font-bold text-center">{{'$44.50'}}</h2>
-        <h3 class="text-lg font-bold text-primary text-center">{{'Pago mensual'}}</h3>
+        <h1 class="text-4xl font-bold text-primary text-center">Plan Seleccionado</h1>
+        <h2 class="text-3xl font-bold text-center">{{'$44.50'}}</h2>
+        <h3 class="text-xl font-bold text-primary text-center">{{'Pago mensual'}}</h3>
         <div class="container mx-auto px-4 my-7 flex flex-col justify-center align-center">
             <h3 class="text-lg font-bold text-center">¿Quieres mejorar tu plan?</h3>
             <div class="flex flex-row justify-center items-center">

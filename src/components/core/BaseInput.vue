@@ -58,7 +58,8 @@
             type: { type: String, default: 'text'},
             mandatory: { type: Boolean, default: false},
             value: { type: [String, Number, Boolean], default:null },
-            options: { type: Array, default: () => ([])}
+            options: { type: Array, default: () => ([])},
+            border: { type: Boolean, default:true}
         },
         computed: {
           isSelect(){

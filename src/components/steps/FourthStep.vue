@@ -1,5 +1,6 @@
 <template>
-    <div class="container flex px-8 justify-center flex-col m-5">
+    <div class="container flex px-8 justify-center flex-col m-5 w-3/4 mx-auto">
+        <h1 class="text-xl font-bold text-primary text-center">Proceso de Emision</h1>
         <Stepper :steps="steps" :route="alreadyTraveled" :current="3"></Stepper>
         <div class="mx-auto w-3/4">
             <h3 class="text-lg font-bold">Resumen de pago:</h3>
