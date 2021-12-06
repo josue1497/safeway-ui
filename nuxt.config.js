@@ -22,10 +22,15 @@ export default {
     plugins: [{ src: '~/plugins/PrettyCheckbox.js', ssr: false }],
     srcDir: 'src',
     css: [
+        '@/assets/css/main.scss',
         '@/assets/css/main.css'
     ],
     tailwindcss: {
         cssPath: '@/assets/css/tailwind.css',
         configPath: '../tailwind.config.js',
-    }
+    },
+    modules: [
+        // Or you can customize
+        ['nuxt-buefy', { css: false, materialDesignIcons: false }],
+    ]
 }

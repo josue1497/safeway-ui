@@ -3,7 +3,7 @@
         <FirstStep v-if="currentStep===1" @next="setStep(2)"></FirstStep>
         <SecondStep v-if="currentStep===2" @next="setStep(3)" @back="setStep(1)"></SecondStep>
         <ThirdStep v-if="currentStep===3" @next="setStep(4)" @back="setStep(2)"></ThirdStep>
-        <FourthStep v-if="currentStep===4"></FourthStep>
+        <FourthStep v-if="currentStep===4" @back="setStep(3)"></FourthStep>
     </div>
 </template>
 

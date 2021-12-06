@@ -11,7 +11,7 @@
                 <BaseInput name="lastname" mandatory label="Apellido" type="text"></BaseInput>
             </div>
             <div class="grid grid-cols-3 gap-4 mt-5 mb-5">
-                <BaseInput name="local-number" mandatory label="Telefono convensional" type="text" icon="search"></BaseInput>
+                <BaseInput name="local-number" mandatory label="Telefono convensional" type="text" ></BaseInput>
                 <BaseInput name="phone-number" mandatory label="Telefono celular" type="text"></BaseInput>
                 <BaseInput name="email" mandatory label="E-mail" type="text"></BaseInput>
             </div>

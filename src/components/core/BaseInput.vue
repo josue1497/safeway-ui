@@ -1,10 +1,15 @@
 <template>
-    <div :class="`flex items-start ${isNaturalInput || isSelect? ' border-b border-black':''} py-2 flex-col`">
+    <div :class="`flex items-start py-2 flex-col`">
         <label :for="name" class="text-primary" v-if="isNaturalInput || isSelect">{{ label }}
             <span class="text-red-600" v-if="mandatory">*</span>
         </label>
         <div class="flex items-start justify-center w-full">
-            <input class="w-full mt-2 appearance-none bg-transparent border-none text-gray-700 py-1 leading-tight focus:outline-none"
+            <input class="w-full form-input mt-0
+                    block
+                    w-full
+                    px-0.5
+                    border-0 border-b-2 border-gray-200
+                    focus:ring-0 focus:border-black"
                    :type="type"
                    :placeholder="label"
                    :aria-label="label"
@@ -12,7 +17,12 @@
                    v-if="isNaturalInput"
                    @change="updateValue"
             />
-            <select class="w-full mt-2 appearance-none bg-transparent border-none text-gray-700 py-1 leading-tight focus:outline-none"
+            <select class="form-select w-full mt-0
+                    block
+                    w-full
+                    px-0.5
+                    border-0 border-b-2 border-gray-200
+                    focus:ring-0 focus:border-black"
                    :type="type"
                    :placeholder="label"
                    :aria-label="label"
@@ -27,15 +37,24 @@
                  v-if="isRadio"
             >
                 <div v-for="(option, index) of options" :key="index" class="mr-4">
-                    <input type="radio" :id="option" :name="name" :value="option"  @change="updateValue"/>
-                    <label :for="name">{{ option }}</label>
+                    <b-field>
+                        <b-radio v-model="value"
+                                 @change="updateValue"
+                                 :native-value="option">
+                            {{ option }}
+                        </b-radio>
+                    </b-field>
+<!--                    <input type="radio" :id="option" :name="name" :value="option" class="form-radio" @change="updateValue"/>-->
+<!--                    <label :for="name">{{ option }}</label>-->
                 </div>
             </div>
             <div class="w-full flex flex-row appearance-none bg-transparent border-none text-gray-700 py-1 leading-tight focus:outline-none"
                  v-if="isCheck"
             >
                 <div>
-                    <input type="checkbox" :id="name" :name="name" v-model="value"  @change="updateValue"/>
+                    <b-field>
+                        <b-checkbox @change="updateValue"/>
+                    </b-field>
                 </div>
                 <div class="ml-3">
                     <label :for="name" v-html="label"></label>

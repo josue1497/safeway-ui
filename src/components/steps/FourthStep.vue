@@ -35,6 +35,7 @@
                 <BaseInput name="cve" mandatory label="CVE" type="text" ></BaseInput>
             </div>
             <div class="container p-4 flex flex-row justify-around align-center mt-10">
+                <button class="bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="back">Volver</button>
                 <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="toPay">Pagar $64.99</button>
             </div>
         </div>
@@ -54,6 +55,9 @@
         methods: {
             toPay(){
                 this.$emit('pay')
+            },
+            back(){
+                this.$emit('back')
             }
         }
     }

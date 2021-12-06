@@ -1,1 +1,101 @@
 @import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$primary: #3a8e81;
+
+.b-checkbox.checkbox:not(.button) {
+  margin-right: 0.5em;
+}
+
+.b-checkbox.checkbox {
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.b-checkbox.checkbox input[type=checkbox] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  outline: none;
+  z-index: -1;
+}
+
+.checkbox input, .radio input {
+  cursor: pointer;
+}
+
+.b-checkbox.checkbox input[type=checkbox]:checked+.check {
+  background: $primary url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath d='M.04.627L.146.52.43.804.323.91zm.177.177L.854.167.96.273.323.91z' fill='%23fff'/%3E%3C/svg%3E") no-repeat 50%;
+  border-color: $primary;
+}
+.b-checkbox.checkbox input[type=checkbox]+.check {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 2px solid #7a7a7a;
+  transition: background .15s ease-out;
+  background: transparent;
+}
+
+.b-radio.radio:not(.button) {
+  margin-right: 0.5em;
+}
+
+.b-radio.radio {
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.b-radio.radio input[type=radio] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  outline: none;
+  z-index: -1;
+}
+
+.b-radio.radio input[type=radio]:checked+.check {
+  border-color: $primary;
+}
+
+.b-radio.radio input[type=radio]+.check {
+  display: flex;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  width: 1.25em;
+  height: 1.25em;
+  transition: background .15s ease-out;
+  border-radius: 50%;
+  border: 2px solid #7a7a7a;
+}
+
+.b-radio.radio input[type=radio]:checked+.check:before {
+  transform: scale(.5);
+}
+
+.b-radio.radio input[type=radio]+.check:before {
+  content: "";
+  display: flex;
+  position: absolute;
+  left: 50%;
+  margin-left: -0.625em;
+  bottom: 50%;
+  margin-bottom: -0.625em;
+  width: 1.25em;
+  height: 1.25em;
+  transition: transform .15s ease-out;
+  border-radius: 50%;
+  transform: scale(0);
+  background-color: $primary;
+}
+
+.b-radio.radio .control-label {
+  padding-left: calc(0.75em - 1px);
+}

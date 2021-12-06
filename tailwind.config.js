@@ -13,6 +13,9 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
   ],
   theme: {
     colors: {
