@@ -1,0 +1,340 @@
+[
+    {
+      "plan_id": "3",
+      "item": 1,
+      "name": "Individual",
+      "memberships": [
+        {
+          "membership_id": "1",
+          "item": 1,
+          "name": "Silver",
+          "priceUSD": 14.99,
+          "benefits": [
+            {
+              "benefit_id": "1",
+              "item": 1,
+              "name": "Un Pasaje",
+              "description": "Un pasaje aéreo en clase económica"
+            },
+            {
+              "benefit_id": "2",
+              "item": 2,
+              "name": "Estadía turista",
+              "description": "Estadía en hotel 3 estrellas (Turista)"
+            },
+            {
+              "benefit_id": "3",
+              "item": 3,
+              "name": "Alquiler Vehiculo mid size",
+              "description": "Alquiler de automóvil intermedio “Mid Size”"
+            },
+            {
+              "benefit_id": "4",
+              "item": 4,
+              "name": "Una Tarjeta Smartsim",
+              "description": "Una tarjeta Smartsim (Chip Internacional)"
+            },
+            {
+              "benefit_id": "5",
+              "item": 5,
+              "name": "Asistencia 10 días",
+              "description": "Asistencia se prestará durante 10 días por beneficiario / enfermedad"
+            }
+          ],
+          "annexes": [
+            {
+              "annexed_id": "3",
+              "item": 2,
+              "name": "Anexo Enfermedades y Accidentes",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "priceUSD": 14.99
+            },
+            {
+              "annexed_id": "2",
+              "item": 1,
+              "name": "Anexo Multiviajes",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "priceUSD": 9.99
+            }
+          ]
+        },
+        {
+          "membership_id": "2",
+          "item": 2,
+          "name": "Gold",
+          "priceUSD": 24.99,
+          "benefits": [
+            {
+              "benefit_id": "6",
+              "item": 1,
+              "name": "Dos pasajes",
+              "description": "Dos pasajes aéreos en clase económica"
+            },
+            {
+              "benefit_id": "7",
+              "item": 2,
+              "name": "Estadía standart",
+              "description": "Estadía en hotel 4 estrellas (Standard Superior)"
+            },
+            {
+              "benefit_id": "8",
+              "item": 3,
+              "name": "Alquiler Vehiculo full size",
+              "description": "Alquiler de automóvil cómodo Full-Size / Small SUV"
+            },
+            {
+              "benefit_id": "9",
+              "item": 4,
+              "name": "Dos Tarjeta Smartsim",
+              "description": "Dos tarjetas Smartsim (Chip Internacional)"
+            },
+            {
+              "benefit_id": "10",
+              "item": 5,
+              "name": "Asistencia 15 días",
+              "description": "Asistencia se prestará durante 15 días por beneficiario / enfermedad"
+            }
+          ],
+          "annexes": [
+            {
+              "annexed_id": "3",
+              "item": 2,
+              "name": "Anexo Enfermedades y Accidentes",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "priceUSD": 24.99
+            },
+            {
+              "annexed_id": "2",
+              "item": 1,
+              "name": "Anexo Multiviajes",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "priceUSD": 19.99
+            }
+          ]
+        },
+        {
+          "membership_id": "3",
+          "item": 3,
+          "name": "Diamond",
+          "priceUSD": 44.99,
+          "benefits": [
+            {
+              "benefit_id": "11",
+              "item": 1,
+              "name": "Tres Pasaje",
+              "description": "Tres pasajes aéreos en clase económica"
+            },
+            {
+              "benefit_id": "12",
+              "item": 2,
+              "name": "Estadía High",
+              "description": "Estadía en hotel 5 estrellas (High Class o Suite Familiar)"
+            },
+            {
+              "benefit_id": "13",
+              "item": 3,
+              "name": "Alquiler Vehiculo Minivan",
+              "description": "Alquiler de automóvil Minivan / Standard SUV"
+            },
+            {
+              "benefit_id": "14",
+              "item": 4,
+              "name": "Tres Tarjeta Smartsim",
+              "description": "Tres tarjetas Smartsim (Chip Internacional)"
+            },
+            {
+              "benefit_id": "15",
+              "item": 5,
+              "name": "Asistencia 20 días",
+              "description": "Asistencia se prestará durante 20 días por beneficiario / enfermedad"
+            }
+          ],
+          "annexes": [
+            {
+              "annexed_id": "3",
+              "item": 2,
+              "name": "Anexo Enfermedades y Accidentes",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "priceUSD": 34.99
+            },
+            {
+              "annexed_id": "2",
+              "item": 1,
+              "name": "Anexo Multiviajes",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "priceUSD": 29.99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "plan_id": "4",
+      "item": 2,
+      "name": "Grupal",
+      "memberships": [
+        {
+          "membership_id": "1",
+          "item": 1,
+          "name": "Silver",
+          "priceUSD": 24.99,
+          "benefits": [
+            {
+              "benefit_id": "1",
+              "item": 1,
+              "name": "Un Pasaje",
+              "description": "Un pasaje aéreo en clase económica"
+            },
+            {
+              "benefit_id": "2",
+              "item": 2,
+              "name": "Estadía turista",
+              "description": "Estadía en hotel 3 estrellas (Turista)"
+            },
+            {
+              "benefit_id": "3",
+              "item": 3,
+              "name": "Alquiler Vehiculo mid size",
+              "description": "Alquiler de automóvil intermedio “Mid Size”"
+            },
+            {
+              "benefit_id": "4",
+              "item": 4,
+              "name": "Una Tarjeta Smartsim",
+              "description": "Una tarjeta Smartsim (Chip Internacional)"
+            },
+            {
+              "benefit_id": "5",
+              "item": 5,
+              "name": "Asistencia 10 días",
+              "description": "Asistencia se prestará durante 10 días por beneficiario / enfermedad"
+            }
+          ],
+          "annexes": [
+            {
+              "annexed_id": "3",
+              "item": 2,
+              "name": "Anexo Enfermedades y Accidentes",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "priceUSD": 14.99
+            },
+            {
+              "annexed_id": "2",
+              "item": 1,
+              "name": "Anexo Multiviajes",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "priceUSD": 9.99
+            }
+          ]
+        },
+        {
+          "membership_id": "2",
+          "item": 2,
+          "name": "Gold",
+          "priceUSD": 44.99,
+          "benefits": [
+            {
+              "benefit_id": "6",
+              "item": 1,
+              "name": "Dos pasajes",
+              "description": "Dos pasajes aéreos en clase económica"
+            },
+            {
+              "benefit_id": "7",
+              "item": 2,
+              "name": "Estadía standart",
+              "description": "Estadía en hotel 4 estrellas (Standard Superior)"
+            },
+            {
+              "benefit_id": "8",
+              "item": 3,
+              "name": "Alquiler Vehiculo full size",
+              "description": "Alquiler de automóvil cómodo Full-Size / Small SUV"
+            },
+            {
+              "benefit_id": "9",
+              "item": 4,
+              "name": "Dos Tarjeta Smartsim",
+              "description": "Dos tarjetas Smartsim (Chip Internacional)"
+            },
+            {
+              "benefit_id": "10",
+              "item": 5,
+              "name": "Asistencia 15 días",
+              "description": "Asistencia se prestará durante 15 días por beneficiario / enfermedad"
+            }
+          ],
+          "annexes": [
+            {
+              "annexed_id": "3",
+              "item": 2,
+              "name": "Anexo Enfermedades y Accidentes",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "priceUSD": 24.99
+            },
+            {
+              "annexed_id": "2",
+              "item": 1,
+              "name": "Anexo Multiviajes",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "priceUSD": 19.99
+            }
+          ]
+        },
+        {
+          "membership_id": "3",
+          "item": 3,
+          "name": "Diamond",
+          "priceUSD": 64.99,
+          "benefits": [
+            {
+              "benefit_id": "11",
+              "item": 1,
+              "name": "Tres Pasaje",
+              "description": "Tres pasajes aéreos en clase económica"
+            },
+            {
+              "benefit_id": "12",
+              "item": 2,
+              "name": "Estadía High",
+              "description": "Estadía en hotel 5 estrellas (High Class o Suite Familiar)"
+            },
+            {
+              "benefit_id": "13",
+              "item": 3,
+              "name": "Alquiler Vehiculo Minivan",
+              "description": "Alquiler de automóvil Minivan / Standard SUV"
+            },
+            {
+              "benefit_id": "14",
+              "item": 4,
+              "name": "Tres Tarjeta Smartsim",
+              "description": "Tres tarjetas Smartsim (Chip Internacional)"
+            },
+            {
+              "benefit_id": "15",
+              "item": 5,
+              "name": "Asistencia 20 días",
+              "description": "Asistencia se prestará durante 20 días por beneficiario / enfermedad"
+            }
+          ],
+          "annexes": [
+            {
+              "annexed_id": "3",
+              "item": 2,
+              "name": "Anexo Enfermedades y Accidentes",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "priceUSD": 34.99
+            },
+            {
+              "annexed_id": "2",
+              "item": 1,
+              "name": "Anexo Multiviajes",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "priceUSD": 29.99
+            }
+          ]
+        }
+      ]
+    }
+  ]

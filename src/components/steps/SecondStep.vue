@@ -1,22 +1,21 @@
 <template>
     <div class="container mx-auto px-4 flex flex-col justify-center align-center p-6">
         <h1 class="text-4xl font-bold text-primary text-center">Plan Seleccionado</h1>
-        <h2 class="text-3xl font-bold text-center">{{'$44.50'}}</h2>
+        <h2 class="text-3xl font-bold text-center">{{membership.priceUSD}}</h2>
         <h3 class="text-xl font-bold text-primary text-center">{{'Pago mensual'}}</h3>
         <div class="container mx-auto px-4 my-7 flex flex-col justify-center align-center">
             <h3 class="text-lg font-bold text-center">¿Quieres mejorar tu plan?</h3>
             <div class="flex flex-row justify-center items-center">
                 <div>
-                    <PlanSupplement class="w-3/4" name="Anexo Multiviajes"
-                                    description="La asistencia se prestará hasta un máximo de tres viajes por beneficiario y $19.99 por enfermedad por cada periodo de doce (12) meses."
-                                    :icon="airplane"></PlanSupplement>
-                    <PlanSupplement class="w-3/4" name="Anexo Enfermedades y Accidentes"
-                                    description="La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses."
-                                    :icon="travel"></PlanSupplement>
+                    <PlanSupplement v-for="(annexed, index) of annexes" class="w-3/4" :key="index" :name="annexed.name"
+                                    :description="annexed.description"
+                                    :icon="setIcon(annexed.item)"
+                                    :price="annexed.priceUSD"
+                                    :annexed="annexed"></PlanSupplement>
                 </div>
                 <div class="h-40 w-1/3 border border-gray p-10 container flex justify-center items-center flex-col">
                     <p class="text-lg font-regular text-center text-primary mb-3">Total a pagar</p>
-                    <p class="text-4xl font-bold text-center leading-none">$64.98</p>
+                    <p class="text-4xl font-bold text-center leading-none">${{total}}</p>
                     <p class="text-xl font-bold text-center text-primary">Pago Mensual</p>
                 </div>
             </div>
@@ -31,32 +30,43 @@
 
 <script>
     import PlanSelector from '../core/PlanSelector'
-    import {plans} from '../../data/constants'
     import PlanSupplement from '../core/PlanSupplement'
     import airplane from '../../assets/img/viajes.png'
     import travel from '../../assets/img/accidente.png'
+    import { mapState } from 'vuex'
     export default {
         name: 'SecondStep',
         components: { PlanSupplement, PlanSelector },
         data: () =>({
-            items: ['Individual', 'Grupal'],
-            current: 'Individual',
-            plans,
-            planSelected: 0,
             airplane,
             travel
         }),
         methods: {
-            setPlan(item){
-                this.planSelected = item
-            },
             nextStep(){
                 this.$emit('next')
             },
             backStep(){
                 this.$emit('back')
+            },
+            setIcon(item = 0){
+                if(item === 1) return this.airplane
+                else return this.travel
             }
-        }
+        },
+        computed: {
+            ...mapState({
+                annexes: state => state.annexes,
+                membership: state => state.membership,
+                annexesSelected: state => state.annexesSelected
+            }),
+            total(){
+                let totalAnnexes = 0
+                if(this.annexesSelected.length){
+                    totalAnnexes = this.annexesSelected.map(anx => anx.priceUSD).reduce((previousValue, currentValue) => previousValue + currentValue)
+                }
+                return (this.membership.priceUSD + totalAnnexes).toFixed(2)
+            }
+        },
     }
 </script>
 

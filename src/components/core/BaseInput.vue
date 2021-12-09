@@ -16,7 +16,7 @@
                    :aria-label="label"
                    :name="name"
                    v-if="isNaturalInput"
-                   @change="updateValue"
+                   @input="updateValue"
             />
             <select class="form-select w-full mt-0
                     block
@@ -29,7 +29,7 @@
                    :aria-label="label"
                    :name="name"
                     v-if="isSelect"
-                    @change="updateValue"
+                    @input="updateValue"
             >
                 <option value="">Seleccione una opción</option>
                 <option v-for="(option, index) of options" :key="index" :value="option"> {{option}}</option>
@@ -40,7 +40,7 @@
                 <div v-for="(option, index) of options" :key="index" class="mr-4">
                     <b-field>
                         <b-radio v-model="value"
-                                 @change="updateValue"
+                                 @input="updateValue"
                                  :native-value="option"
                                  :name="name">
                             {{ option }}
@@ -53,7 +53,7 @@
             >
                 <div>
                     <b-field>
-                        <b-checkbox @change="updateValue"/>
+                        <b-checkbox @input="updateValue"/>
                     </b-field>
                 </div>
                 <div class="ml-3">
@@ -93,13 +93,16 @@
           },
           isNaturalInput(){
               return !this.isSelect && !this.isRadio && !this.isCheck
-          }
+          },
+          // _value(),
         },
         methods: {
             updateValue(value) {
+                console.log(value)
                 this.$emit('input', value)
             },
         }
+        // wat
     }
 </script>
 
