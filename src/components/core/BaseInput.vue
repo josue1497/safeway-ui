@@ -1,6 +1,7 @@
 <template>
     <div :class="`flex items-start py-2 flex-col`">
-        <label :for="name" class="text-primary" v-if="isNaturalInput || isSelect">{{ label }}
+        <label :for="name" class="text-primary w-auto" v-if="isNaturalInput || isSelect || showLabel">
+            {{ label }}
             <span class="text-red-600" v-if="mandatory">*</span>
         </label>
         <div class="flex items-start justify-center w-full">
@@ -40,12 +41,11 @@
                     <b-field>
                         <b-radio v-model="value"
                                  @change="updateValue"
-                                 :native-value="option">
+                                 :native-value="option"
+                                 :name="name">
                             {{ option }}
                         </b-radio>
                     </b-field>
-<!--                    <input type="radio" :id="option" :name="name" :value="option" class="form-radio" @change="updateValue"/>-->
-<!--                    <label :for="name">{{ option }}</label>-->
                 </div>
             </div>
             <div class="w-full flex flex-row appearance-none bg-transparent border-none text-gray-700 py-1 leading-tight focus:outline-none"
@@ -76,6 +76,7 @@
             name: { type: String, default: null},
             type: { type: String, default: 'text'},
             mandatory: { type: Boolean, default: false},
+            showLabel: { type: Boolean, default: false},
             value: { type: [String, Number, Boolean], default:null },
             options: { type: Array, default: () => ([])},
             border: { type: Boolean, default:true}

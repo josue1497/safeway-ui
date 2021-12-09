@@ -3,33 +3,30 @@
         <h1 class="text-xl font-bold text-primary text-center">Proceso de Emisión</h1>
         <Stepper :steps="steps" :route="alreadyTraveled" :current="2"></Stepper>
         <div class="mx-auto w-3/4">
-            <div class="grid grid-cols-2 gap-4 ">
-                <p class="col-span-2 uppercase font-bold">Información de cliente:</p>
-                <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
-                <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
-                <BaseInput name="name" mandatory label="Nombre" type="text"></BaseInput>
-                <BaseInput name="lastname" mandatory label="Apellido" type="text"></BaseInput>
-            </div>
-            <div class="grid grid-cols-3 gap-4 mt-5 mb-5">
-                <BaseInput name="local-number" mandatory label="Teléfono convencional" type="text" ></BaseInput>
-                <BaseInput name="phone-number" mandatory label="Telefono celular" type="text"></BaseInput>
-                <BaseInput name="email" mandatory label="E-mail" type="text"></BaseInput>
+            <div class="grid grid-cols-12 gap-4 mt-5 mb-5">
+                <p class="col-span-2 uppercase font-bold col-span-12">Información del cliente:</p>
+                <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents" class="col-span-6"></BaseInput>
+                <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search" class="col-span-6"></BaseInput>
+                <BaseInput name="name" mandatory label="Nombre" type="text" class="col-span-6"></BaseInput>
+                <BaseInput name="lastname" mandatory label="Apellido" type="text" class="col-span-6"></BaseInput>
+                <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12"></BaseInput>
+                <BaseInput name="local-number" mandatory label="Teléfono convencional" type="text" class="col-span-4"></BaseInput>
+                <BaseInput name="phone-number" mandatory label="Telefono celular" type="text" class="col-span-4"></BaseInput>
+                <BaseInput name="email" mandatory label="E-mail" type="text" class="col-span-4"></BaseInput>
             </div>
             <div class="border-b border-gray-300 p-5"></div>
             <div class="mt-10 w-full">
-                <ExpansionPanel title="Información de los beneficiarios:">
+                <ExpansionPanel title="Información del beneficiario principal:">
                    <div class="w-full">
-                       <div class="grid grid-cols-2 gap-4 mt-10">
-                           <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
-                           <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
-                       </div>
-                       <div class="grid grid-cols-3 gap-4 mt-5 mb-5">
-                           <BaseInput name="name" mandatory label="Nombre" type="text"></BaseInput>
-                           <BaseInput name="lastname" mandatory label="Apellido" type="text"></BaseInput>
-                           <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre"></BaseInput>
-                           <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text"></BaseInput>
-                           <BaseInput name="height" mandatory label="Estatura" type="text"></BaseInput>
-                           <BaseInput name="weight" mandatory label="Peso" type="text"></BaseInput>
+                       <div class="grid grid-cols-12 gap-4 mt-10 mb-5">
+                           <BaseInput name="dni-type" mandatory label="Nombre y apellido" type="text" class="col-span-6"></BaseInput>
+                           <BaseInput name="dni" mandatory label="Identificación" type="text"  class="col-span-6"></BaseInput>
+                           <BaseInput name="birth-date" mandatory label="Fecha de nacimiento" type="date" class="col-span-4"></BaseInput>
+                           <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4"></BaseInput>
+                           <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true"></BaseInput>
+                           <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text" class="col-span-4"></BaseInput>
+                           <BaseInput name="height" mandatory label="Estatura" type="text" class="col-span-4"></BaseInput>
+                           <BaseInput name="weight" mandatory label="Peso" type="text" class="col-span-4"></BaseInput>
                        </div>
                    </div>
                 </ExpansionPanel>
@@ -78,7 +75,7 @@ transacción. Así como también reconoce que el cliente ha leído y acepta los 
         name: 'ThirdStep',
         components: { ExpansionPanel, MedicalInformation, BaseInput, Stepper },
         data: () =>({
-            documents: ['Natural', 'Jurídico'],
+            documents: ['Cédula', 'Pasaporte'],
             genre: ['Hombre', 'Mujer'],
             yesno: ['Si', 'No'],
             steps: [1, 2, 3, 4],
