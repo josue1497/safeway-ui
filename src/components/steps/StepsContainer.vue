@@ -3,7 +3,8 @@
         <FirstStep v-if="currentStep===1" @next="setStep(2)"></FirstStep>
         <SecondStep v-if="currentStep===2" @next="setStep(3)" @back="setStep(1)"></SecondStep>
         <ThirdStep v-if="currentStep===3" @next="setStep(4)" @back="setStep(2)"></ThirdStep>
-        <FourthStep v-if="currentStep===4" @back="setStep(3)"></FourthStep>
+        <FourthStep v-if="currentStep===4" @back="setStep(3)" @pay="setStep(5)"></FourthStep>
+        <FifthStep v-if="currentStep===5" @reset="setStep(1)"></FifthStep>
     </div>
 </template>
 
@@ -12,9 +13,10 @@
     import SecondStep from './SecondStep'
     import ThirdStep from './ThirdStep'
     import FourthStep from './FourthStep'
+    import FifthStep from './FifthStep'
     export default {
         name: 'StepsContainer',
-        components: { FourthStep, ThirdStep, SecondStep, FirstStep },
+        components: { FifthStep, FourthStep, ThirdStep, SecondStep, FirstStep },
         data: ()=>({
             currentStep: 1,
         }),

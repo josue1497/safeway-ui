@@ -7,16 +7,17 @@
             <h3 class="text-lg font-bold text-center">¿Quieres mejorar tu plan?</h3>
             <div class="flex flex-row justify-center items-center">
                 <div>
-                    <PlanSupplement class="w-3/4" name="Anexo Multiviajes" description="La asistencia se prestará hasta un máximo de tres viajes por beneficiario y $19 99
-por enfermedad por cada periodo de doce (12) meses."></PlanSupplement>
-                    <PlanSupplement class="w-3/4" name="Anexo Enfermedades y Accidentes" description="La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o
-procedimiento quirúrgico por cada periodo de doce (12) meses.
-"></PlanSupplement>
+                    <PlanSupplement class="w-3/4" name="Anexo Multiviajes"
+                                    description="La asistencia se prestará hasta un máximo de tres viajes por beneficiario y $19.99 por enfermedad por cada periodo de doce (12) meses."
+                                    :icon="airplane"></PlanSupplement>
+                    <PlanSupplement class="w-3/4" name="Anexo Enfermedades y Accidentes"
+                                    description="La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses."
+                                    :icon="travel"></PlanSupplement>
                 </div>
                 <div class="h-40 w-1/3 border border-gray p-10 container flex justify-center items-center flex-col">
-                    <p class="text-lg font-regular text-center text-primary">Total a pagar</p>
-                    <p class="text-2xl font-bold text-center leading-none">$64.98</p>
-                    <p class="text-lg font-bold text-center text-primary">Mensual</p>
+                    <p class="text-lg font-regular text-center text-primary mb-3">Total a pagar</p>
+                    <p class="text-4xl font-bold text-center leading-none">$64.98</p>
+                    <p class="text-xl font-bold text-center text-primary">Pago Mensual</p>
                 </div>
             </div>
 
@@ -32,6 +33,8 @@ procedimiento quirúrgico por cada periodo de doce (12) meses.
     import PlanSelector from '../core/PlanSelector'
     import {plans} from '../../data/constants'
     import PlanSupplement from '../core/PlanSupplement'
+    import airplane from '../../assets/img/viajes.png'
+    import travel from '../../assets/img/accidente.png'
     export default {
         name: 'SecondStep',
         components: { PlanSupplement, PlanSelector },
@@ -40,6 +43,8 @@ procedimiento quirúrgico por cada periodo de doce (12) meses.
             current: 'Individual',
             plans,
             planSelected: 0,
+            airplane,
+            travel
         }),
         methods: {
             setPlan(item){

@@ -4,7 +4,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "deploy": "nuxt generate --prod && firebase deploy"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.4",
@@ -12,7 +13,8 @@
     "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.4.13",
     "postcss-import": "^14.0.2",
-    "pretty-checkbox-vue": "^1.1.9"
+    "pretty-checkbox-vue": "^1.1.9",
+    "vue-lottie": "^0.2.1"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",

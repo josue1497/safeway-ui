@@ -1,33 +1,42 @@
 <template>
     <div class="container flex px-8 justify-center flex-col m-5 w-3/4 mx-auto">
-        <h1 class="text-xl font-bold text-primary text-center">Proceso de Emision</h1>
+        <h1 class="text-xl font-bold text-primary text-center">Proceso de Emisión</h1>
         <Stepper :steps="steps" :route="alreadyTraveled" :current="2"></Stepper>
-        <form class="mx-auto w-3/4" @submit="() => {return false}">
+        <div class="mx-auto w-3/4">
             <div class="grid grid-cols-2 gap-4 ">
-                <p class="col-span-2 uppercase font-bold">Informacion de cliente:</p>
+                <p class="col-span-2 uppercase font-bold">Información de cliente:</p>
                 <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
                 <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
                 <BaseInput name="name" mandatory label="Nombre" type="text"></BaseInput>
                 <BaseInput name="lastname" mandatory label="Apellido" type="text"></BaseInput>
             </div>
             <div class="grid grid-cols-3 gap-4 mt-5 mb-5">
-                <BaseInput name="local-number" mandatory label="Telefono convensional" type="text" ></BaseInput>
+                <BaseInput name="local-number" mandatory label="Teléfono convencional" type="text" ></BaseInput>
                 <BaseInput name="phone-number" mandatory label="Telefono celular" type="text"></BaseInput>
                 <BaseInput name="email" mandatory label="E-mail" type="text"></BaseInput>
             </div>
             <div class="border-b border-gray-300 p-5"></div>
-            <div class="grid grid-cols-2 gap-4 mt-10">
-                <p class="col-span-2 uppercase font-bold">Informacion de los beneficiarios:</p>
-                <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
-                <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
-            </div>
-            <div class="grid grid-cols-3 gap-4 mt-5 mb-5">
-                <BaseInput name="name" mandatory label="Nombre" type="text"></BaseInput>
-                <BaseInput name="lastname" mandatory label="Apellido" type="text"></BaseInput>
-                <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre"></BaseInput>
-                <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text"></BaseInput>
-                <BaseInput name="height" mandatory label="Estatura" type="text"></BaseInput>
-                <BaseInput name="weight" mandatory label="Peso" type="text"></BaseInput>
+            <div class="mt-10 w-full">
+                <ExpansionPanel title="Información de los beneficiarios:">
+                   <div class="w-full">
+                       <div class="grid grid-cols-2 gap-4 mt-10">
+                           <BaseInput name="dni-type" mandatory label="Tpo de identificación" type="select" :options="documents"></BaseInput>
+                           <BaseInput name="dni" mandatory label="Identificación" type="text" icon="search"></BaseInput>
+                       </div>
+                       <div class="grid grid-cols-3 gap-4 mt-5 mb-5">
+                           <BaseInput name="name" mandatory label="Nombre" type="text"></BaseInput>
+                           <BaseInput name="lastname" mandatory label="Apellido" type="text"></BaseInput>
+                           <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre"></BaseInput>
+                           <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text"></BaseInput>
+                           <BaseInput name="height" mandatory label="Estatura" type="text"></BaseInput>
+                           <BaseInput name="weight" mandatory label="Peso" type="text"></BaseInput>
+                       </div>
+                   </div>
+                </ExpansionPanel>
+                <button class="group hover:bg-primary hover:shadow-lg px-4 py-2 mt-5 flex justify-center items-center border border-primary rounded ">
+                    <p class="material-icons mr-auto text-primary group-hover:text-white">add_circle_outline</p>
+                    <p class="ml-3 group-hover:text-white">Añadir beneficiario</p>
+                </button>
             </div>
             <div class="border-b border-gray-300 p-5"></div>
             <div class="flex justify-center align-center w-full mt-10 flex-col">
@@ -55,7 +64,7 @@ transacción. Así como también reconoce que el cliente ha leído y acepta los 
                     <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="nextStep">Continuar</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </template>
 
@@ -63,9 +72,11 @@ transacción. Así como también reconoce que el cliente ha leído y acepta los 
     import Stepper from '../core/Stepper'
     import BaseInput from '../core/BaseInput'
     import MedicalInformation from '../core/MedicalInformation'
+    import ExpansionPanel from '../core/ExpansionPanel'
+
     export default {
         name: 'ThirdStep',
-        components: { MedicalInformation, BaseInput, Stepper },
+        components: { ExpansionPanel, MedicalInformation, BaseInput, Stepper },
         data: () =>({
             documents: ['Natural', 'Jurídico'],
             genre: ['Hombre', 'Mujer'],

@@ -19,7 +19,7 @@
     import {plans} from '../../data/constants'
     export default {
         name: 'firstStep',
-        components: { PlanSelector, TabSelector },
+        components: {  PlanSelector, TabSelector },
         data: () =>({
             items: ['Individual', 'Grupal'],
             current: 'Individual',

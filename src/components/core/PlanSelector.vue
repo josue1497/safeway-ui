@@ -7,8 +7,8 @@
                 <div class="text-xl font-bold text-center text-white leading-10" >{{planName}}</div>
             </div>
             <div class="px-6 py-2">
-                <div class="font-bold text-center text-sm mb-2">Beneficios</div>
-                <p :class="`text-gray-700 text-base ${index+1 === benefits.length ? '':'border-b'} border-gray-300 text-center`" v-for="(benefit, index) of benefits" :key="index">
+                <div class="font-bold text-center text-sm mb-3">Beneficios</div>
+                <p :class="`text-gray-700 text-sm px-2 py-1 ${index+1 === benefits.length ? '':'border-b'} border-gray-300 text-center`" v-for="(benefit, index) of benefits" :key="index">
                     {{ benefit }}
                 </p>
 
