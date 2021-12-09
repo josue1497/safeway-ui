@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-2">
         <div class="flex">
             <button @click="show=!show" class=" w-full flex justify-center align-center bg-primary text-white rounded hover:bg-secondary px-4 py-3 cursor-pointer focus:outline-none mr-2">
                 <span>{{ title }}</span>
@@ -18,10 +18,10 @@
         name: 'ExpansionPanel',
         props: {
             title: {type: String, default: ''},
+            show: {type: Boolean, default: true},
         },
-        data: () => ({
-            show: true
-        })
+        computed: {
+        }
     }
 </script>
 

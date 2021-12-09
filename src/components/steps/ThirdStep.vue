@@ -16,7 +16,7 @@
             </div>
             <div class="border-b border-gray-300 p-5"></div>
             <div class="mt-10 w-full">
-                <ExpansionPanel title="Información del beneficiario principal:">
+                <ExpansionPanel :title="index === 0 ? 'Información del beneficiario principal:':'Información del beneficiario:'" v-for="(beneficiary, index) of beneficiaries" :key="index">
                    <div class="w-full">
                        <div class="grid grid-cols-12 gap-4 mt-10 mb-5">
                            <BaseInput name="dni-type" mandatory label="Nombre y apellido" type="text" class="col-span-6"></BaseInput>
@@ -30,9 +30,10 @@
                        </div>
                    </div>
                 </ExpansionPanel>
-                <button class="group hover:bg-primary hover:shadow-lg px-4 py-2 mt-5 flex justify-center items-center border border-primary rounded ">
-                    <p class="material-icons mr-auto text-primary group-hover:text-white">add_circle_outline</p>
-                    <p class="ml-3 group-hover:text-white">Añadir beneficiario</p>
+                <button class="group hover:bg-primary hover:shadow-lg px-4 py-2 mt-5 flex justify-center items-center border border-primary rounded " v-if="canAddPersonal"
+                        @click="addBeneficiary">
+                    <span class="material-icons mr-auto text-primary group-hover:text-white">add_circle_outline</span>
+                    <span class="ml-3 group-hover:text-white">Añadir beneficiario</span>
                 </button>
             </div>
             <div class="border-b border-gray-300 p-5"></div>
@@ -53,8 +54,8 @@
                 <div class="flex justify-center items-center w-full flex-col my-8">
                     <BaseInput name="agree" :label="`<p>El agente declara que asesoró al cliente a fin de que la solicitud y toda la documentación contenga
                                                     información veraz. La falta de veracidad puede afectar la validez del contrato o el reembolso de los
-                                                     reclamos.</p><br><br><p> El agente reconoce que el cliente aceptó que actúa por su cuenta y representación en esta
-transacción. Así como también reconoce que el cliente ha leído y acepta los términos y condiciones</p>`" type="check"></BaseInput>
+                                                    reclamos.</p><br><p> El agente reconoce que el cliente aceptó que actúa por su cuenta y representación en esta
+                                                    transacción. Así como también reconoce que el cliente ha leído y acepta los términos y condiciones</p>`" type="check"></BaseInput>
                 </div>
                 <div class="container p-4 flex flex-row justify-around align-center">
                     <button class="bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="backStep">Volver a cotizar</button>
@@ -70,16 +71,30 @@ transacción. Así como también reconoce que el cliente ha leído y acepta los 
     import BaseInput from '../core/BaseInput'
     import MedicalInformation from '../core/MedicalInformation'
     import ExpansionPanel from '../core/ExpansionPanel'
+    import { mapState } from 'vuex'
+    import { beneficiaries, defaultBeneficiary } from '../../data/constants'
 
     export default {
         name: 'ThirdStep',
         components: { ExpansionPanel, MedicalInformation, BaseInput, Stepper },
+        computed: {
+            ...mapState({
+                annexes: state => state.annexes,
+                membership: state => state.membership,
+                plan: state => state.plan,
+                annexesSelected: state => state.annexesSelected
+            }),
+            canAddPersonal(){
+                return this.plan.name !== 'Individual'
+            }
+        },
         data: () =>({
             documents: ['Cédula', 'Pasaporte'],
             genre: ['Hombre', 'Mujer'],
             yesno: ['Si', 'No'],
             steps: [1, 2, 3, 4],
-            alreadyTraveled: [1]
+            alreadyTraveled: [1],
+            beneficiaries: [...beneficiaries]
         }),
         methods: {
             nextStep(){
@@ -87,6 +102,9 @@ transacción. Así como también reconoce que el cliente ha leído y acepta los 
             },
             backStep(){
                 this.$emit('back')
+            },
+            addBeneficiary(){
+                this.beneficiaries = [...this.beneficiaries, defaultBeneficiary]
             }
         }
     }
