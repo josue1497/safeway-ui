@@ -1,0 +1,38 @@
+[
+
+  {
+    "id": "1",
+    "name": "Condición médica",
+    "description": "¿Han sido diagnosticado de cualquier condición médica, consecuente de enfermedad y/o accidente, que haya requerido de hospitalización, tratamiento médico y/o medicamentos con anterioridad a la presente fecha?",
+    "active": "1",
+    "isBoolean": 1,
+    "item": "1"
+  },
+
+  {
+    "id": "2",
+    "name": "Hospitalizaciób",
+    "description": "¿Han sido notificados de necesitar hospitalización, cirugía, tratamiento, consultas médicas qué a la fecha no se hayan llevado a cabo o existe alguna razón por la cual",
+    "active": "1",
+    "isBoolean": 1,
+    "item": "2"
+  },
+
+  {
+    "id": "3",
+    "name": "Tratamiento o medicación",
+    "description": "¿Están bajo algún tratamiento o medicación o están bajo evaluación para determinar un diagnóstico no definido?",
+    "active": "1",
+    "isBoolean": 1,
+    "item": "3"
+  },
+
+  {
+    "id": "4",
+    "name": "Detalle de respuestas",
+    "description": "Por favor dar detalles de las respuestas afirmativas incluyendo el número de pregunta, beneficiario, diagnóstico, fecha, nombre de médico u hospitales, tratamientos recibidos y/o medicamentos prescritos, estado actual y cualquier otro detalle adicional que considere necesario mencionar en base a la pregunta:",
+    "active": "1",
+    "isBoolean": 0,
+    "item": "4"
+  }
+]

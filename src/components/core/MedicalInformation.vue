@@ -2,7 +2,7 @@
     <div class="flex justify-center align-center w-full my-2">
         <p class="w-3/4">{{ description }}</p>
         <div class="w-1/4 flex justify-center items-center">
-            <BaseInput :name="name" type="radio" :options="yesno" v-model="value" @change="updateValue"></BaseInput>
+            <BaseInput :name="name" type="radio" :options="yesno" v-model="value" @input="updateValue"></BaseInput>
         </div>
     </div>
 </template>

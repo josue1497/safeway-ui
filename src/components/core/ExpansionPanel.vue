@@ -1,7 +1,10 @@
 <template>
     <div class="mb-2">
-        <div class="flex">
-            <button @click="show=!show" class=" w-full flex justify-center align-center bg-primary text-white rounded hover:bg-secondary px-4 py-3 cursor-pointer focus:outline-none mr-2">
+        <div class="flex rounded">
+            <button class=" bg-red-600 hover:bg-red-400 text-white w-8" v-if="showClear" @click="clear">
+                <span class="material-icons ml-auto">clear</span>
+            </button>
+            <button @click="show=!show" class=" w-full flex justify-center align-center bg-primary text-white hover:bg-secondary px-4 py-3 cursor-pointer focus:outline-none mr-2">
                 <span>{{ title }}</span>
                 <span class="material-icons ml-auto" v-if="!show">expand_more</span>
                 <span class="material-icons ml-auto" v-if="show">expand_less</span>
@@ -19,8 +22,12 @@
         props: {
             title: {type: String, default: ''},
             show: {type: Boolean, default: true},
+            showClear: {type: Boolean, default: false},
         },
-        computed: {
+        methods: {
+            clear(){
+                this.$emit('clear')
+            }
         }
     }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div :class="`flex items-start py-2 flex-col`">
-        <label :for="name" class="text-primary w-auto" v-if="isNaturalInput || isSelect || showLabel">
+        <label :for="name" class="text-primary w-auto break-normal" v-if="isNaturalInput || isSelect || showLabel">
             {{ label }}
             <span class="text-red-600" v-if="mandatory">*</span>
         </label>
@@ -53,7 +53,7 @@
             >
                 <div>
                     <b-field>
-                        <b-checkbox @input="updateValue"/>
+                        <b-checkbox @input="updateValue" :name="name" :native-value="value" v-model="value"/>
                     </b-field>
                 </div>
                 <div class="ml-3">
@@ -77,7 +77,7 @@
             type: { type: String, default: 'text'},
             mandatory: { type: Boolean, default: false},
             showLabel: { type: Boolean, default: false},
-            value: { type: [String, Number, Boolean], default:null },
+            value: { type: [String, Number, Boolean], default: null },
             options: { type: Array, default: () => ([])},
             border: { type: Boolean, default:true}
         },
@@ -98,11 +98,14 @@
         },
         methods: {
             updateValue(value) {
-                console.log(value)
                 this.$emit('input', value)
             },
+        },
+        watch: {
+            value(){
+                console.log(this.value)
+            }
         }
-        // wat
     }
 </script>
 

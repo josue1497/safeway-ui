@@ -8,7 +8,7 @@ export default {
         ],
         link: [
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
-            { rel: 'icon', type: 'image/x-icon', href: '@/assets/img/favicon.png' }
+            { rel: 'icon', type: 'image/x-icon', href: '~/assets/img/favicon.png' }
 
         ],
     },
@@ -32,5 +32,13 @@ export default {
     modules: [
         // Or you can customize
         ['nuxt-buefy', { css: false, materialDesignIcons: false }],
-    ]
+        '@nuxtjs/axios'
+    ],
+    env: {
+        BASE_URL: process.env.BASE_URL || 'http://localhost:3000'
+    },
+    loading: {
+        color: '#3a8e81',
+        height: '5px'
+    }
 }
