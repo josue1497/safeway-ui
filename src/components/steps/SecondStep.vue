@@ -2,8 +2,8 @@
     <div class="container mx-auto px-4 flex flex-col justify-center align-center p-6">
         <div class="w-full flex flex-row">
             <div class="w-full flex flex-row mr-auto">
-                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-auto">insert_drive_file</button>
-                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-3" @click="showOrOpenModal">share</button>
+                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-auto"  @click="showOrOpenModal">insert_drive_file</button>
+<!--                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-3">share</button>-->
             </div>
         </div>
         <h1 class="text-4xl font-bold text-primary text-center mb-2">Plan {{`${plan.name} ${membership.name}`}}</h1>
