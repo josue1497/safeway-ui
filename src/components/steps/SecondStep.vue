@@ -1,5 +1,11 @@
 <template>
     <div class="container mx-auto px-4 flex flex-col justify-center align-center p-6">
+        <div class="w-full flex flex-row">
+            <div class="w-full flex flex-row mr-auto">
+                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-auto">insert_drive_file</button>
+                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-3" @click="showOrOpenModal">share</button>
+            </div>
+        </div>
         <h1 class="text-4xl font-bold text-primary text-center mb-2">Plan {{`${plan.name} ${membership.name}`}}</h1>
         <h2 class="text-3xl font-bold text-center mb-2">{{membership.priceUSD}}</h2>
         <h3 class="text-xl font-bold text-primary text-center">{{'Pago mensual'}}</h3>
@@ -25,6 +31,7 @@
             <button class="bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="backStep">Seleccionar otro plan</button>
             <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full"  @click="nextStep">Continuar con la solicitud</button>
         </div>
+        <QuoteModal :visible="modal" v-if="modal" @close="showOrOpenModal"></QuoteModal>
     </div>
 </template>
 
@@ -34,12 +41,14 @@
     import airplane from '../../assets/img/viajes.png'
     import travel from '../../assets/img/accidente.png'
     import { mapState } from 'vuex'
+    import QuoteModal from '../core/QuoteModal'
     export default {
         name: 'SecondStep',
-        components: { PlanSupplement, PlanSelector },
-        data: () =>({
+        components: { QuoteModal, PlanSupplement, PlanSelector },
+        data: () => ({
             airplane,
-            travel
+            travel,
+            modal: false,
         }),
         methods: {
             nextStep(){
@@ -51,6 +60,9 @@
             setIcon(item = 0){
                 if(item === 1) return this.airplane
                 else return this.travel
+            },
+            showOrOpenModal(){
+                this.modal = !this.modal
             }
         },
         computed: {
