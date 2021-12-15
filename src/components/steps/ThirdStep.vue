@@ -5,8 +5,9 @@
         <div class="mx-auto w-3/4">
             <div class="grid grid-cols-12 gap-4 mt-5 mb-5">
                 <p class="col-span-2 uppercase font-bold col-span-12">Información del cliente:</p>
-                <BaseInput name="dni" mandatory label="Número de cédula" type="text" class="col-span-6" v-model="customer.dni"></BaseInput>
-                <BaseInput name="name" mandatory label="Nombres y Apellidos" type="text" class="col-span-6" v-model="customer.names"></BaseInput>
+                <BaseInput name="dni" mandatory label="Número de cédula" type="text" class="col-span-12" v-model="customer.identification"></BaseInput>
+                <BaseInput name="name" mandatory label="Nombres" type="text" class="col-span-6" v-model="customer.first_name"></BaseInput>
+                <BaseInput name="name" mandatory label="Apellidos" type="text" class="col-span-6" v-model="customer.last_name"></BaseInput>
                 <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12" v-model="customer.address"></BaseInput>
                 <BaseInput name="local-number" mandatory label="Teléfono convencional" type="text" class="col-span-4" v-model="customer.conventional_phone"></BaseInput>
                 <BaseInput name="phone-number" mandatory label="Telefono celular" type="text" class="col-span-4" v-model="customer.cellphone"></BaseInput>
@@ -14,16 +15,18 @@
             </div>
             <div class="border-b border-gray-300 p-5"></div>
             <div class="mt-10 w-full">
+<!--                <button class="bg-white text-secondary hover:bg-primary hover:text-white border border-primary transition-all duration-200 ease-in-out mx-auto rounded py-2 px-3 rounded mb-2" @click="setBeneficiaryByCustomer(customer)">Traer informacion del cliente</button>-->
                 <ExpansionPanel :title="index === 0 ? 'Información del beneficiario principal:':'Información del beneficiario secundario:'" v-for="(beneficiary, index) of beneficiaries" :key="index"
                                 :show-clear="index>0" @clear="clearBeneficiary(index)">
                     <div class="w-full">
                         <div class="grid grid-cols-12 gap-4 mt-10 mb-5">
-                            <BaseInput name="names" mandatory label="Nombre y apellido" type="text" class="col-span-6" v-model="beneficiary.names"></BaseInput>
-                            <BaseInput name="dni" mandatory label="Identificación" type="text"  class="col-span-6" v-model="beneficiary.dni"></BaseInput>
+                            <BaseInput name="names" mandatory label="Nombres" type="text" class="col-span-6" v-model="beneficiary.first_name"></BaseInput>
+                            <BaseInput name="names" mandatory label="Apellidos" type="text" class="col-span-6" v-model="beneficiary.last_name"></BaseInput>
+                            <BaseInput name="dni" mandatory label="Identificación" type="text"  class="col-span-12" v-model="beneficiary.identification"></BaseInput>
                             <BaseInput name="birth-date" mandatory label="Fecha de nacimiento" type="date" class="col-span-4" v-model="beneficiary.birth_date"></BaseInput>
                             <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4" v-model="beneficiary.age"></BaseInput>
-                            <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.genre"></BaseInput>
-                            <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text" class="col-span-4" v-model="beneficiary.born_place"></BaseInput>
+                            <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.gender"></BaseInput>
+                            <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text" class="col-span-4" v-model="beneficiary.place_of_birth"></BaseInput>
                             <BaseInput name="height" mandatory label="Estatura" type="text" class="col-span-4" v-model="beneficiary.height"></BaseInput>
                             <BaseInput name="weight" mandatory label="Peso" type="text" class="col-span-4" v-model="beneficiary.weight"></BaseInput>
                         </div>
@@ -36,7 +39,7 @@
                 </button>
             </div>
             <div class="border-b border-gray-300 p-5"></div>
-            <div class="flex justify-center align-center w-full mt-10 flex-col">
+            <div class="flex justify-center align-center w-full mt-10 flex-col" v-if="surveyResponse.length">
                 <h3 class="text-lg font-bold uppercase mb-4">INFORMACIÓN MÉDICA SOBRE EL BENEFICIARIO:</h3>
                 <div v-for="(surveyR, index) of survey" class="flex justify-center align-center w-full flex-col">
                     <MedicalInformation
@@ -52,11 +55,11 @@
             <div class="flex justify-center align-center w-full mt-5 flex-col mt-10">
                 <h3 class="text-lg font-bold uppercase">Datos para facturación:</h3>
                 <div class="grid grid-cols-12 gap-4 ">
-                    <BaseInput name="genre" mandatory label="Factura a nombre de:" type="radio" :options="invoiceTo" :show-label="true" class="col-span-12" v-model="invoiceInformation.client_to"></BaseInput>
-                    <BaseInput name="social-reason" mandatory label="Nombre/Razón Social" type="text" class="col-span-6"  v-model="invoiceInformation.reason_name"></BaseInput>
+                    <BaseInput name="type_identifier" mandatory label="Factura a nombre de:" type="radio" :options="invoiceTo" :show-label="true" class="col-span-12" v-model="invoiceInformation.type_identifier"></BaseInput>
+                    <BaseInput name="social-reason" mandatory label="Nombre/Razón Social" type="text" class="col-span-6"  v-model="invoiceInformation.business_name"></BaseInput>
                     <BaseInput name="ruc" mandatory label="C.I/RUC" type="text"  class="col-span-6"  v-model="invoiceInformation.ruc"></BaseInput>
                     <BaseInput name="email-to-invoice" mandatory label="Correo electrónico para facturación" type="text" class="col-span-6" v-model="invoiceInformation.email"></BaseInput>
-                    <BaseInput name="phone" mandatory label="Teléfono" type="text" class="col-span-6" v-model="invoiceInformation.phone_number"></BaseInput>
+                    <BaseInput name="phone" mandatory label="Teléfono" type="text" class="col-span-6" v-model="invoiceInformation.phone"></BaseInput>
                     <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12"  v-model="invoiceInformation.address"></BaseInput>
                 </div>
                 <div class="flex justify-center items-center w-full flex-col my-8">
@@ -69,12 +72,14 @@
                     <p>(<span class="text-red-600">*</span>) Campos obligatorios</p>
                 </div>
                 <div class="container p-4 flex flex-row justify-around align-center">
-                    <button class="bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="backStep">Volver a cotizar</button>
-                    <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="nextStep">Continuar</button>
-                    <div id="tooltip-default" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-900 font-medium shadow-sm text-white py-2 px-3 text-sm rounded-lg opacity-0 duration-300 transition-opacity invisible dark:bg-gray-700">
-                        Tooltip content
-                        <div class="tooltip-arrow" data-popper-arrow></div>
-                    </div>
+                    <button class="bg-white border border-primary px-4 py-2 text-primary hover:bg-primary hover:text-white transition-all duration-200 ease-in-out mx-auto w-1/4 rounded rounded-full" @click="backStep">Volver a cotizar</button>
+                    <button :class="`inline-flex  w-1/4 items-center px-4 py-2 font-semibold leading-6 text-sm text-white bg-primary hover:bg-secondary transition ease-in-out duration-150 rounded-full ${loading ?'cursor-not-allowed':''}`" @click="nextStep" :disabled="loading">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" v-if="loading">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span class="mx-auto">Continuar</span>
+                    </button>
                 </div>
             </div>
 
@@ -90,6 +95,7 @@
     import { mapState } from 'vuex'
     import { beneficiaries, defaultBeneficiary, defaultCustomer, invoiceInformationDefault } from '../../data/constants'
     import * as safewaySurvey from "../../assets/data/survey";
+    import userInfoMixin from  '../../mixins/userInfo.mixin'
 
     export default {
         name: 'ThirdStep',
@@ -105,7 +111,7 @@
                 return this.plan.name !== 'Individual'
             },
             showTextArea(){
-                return this.surveyResponse.some(survey => survey.response !== 'No')
+                return this.surveyResponse.some(survey => survey.isBoolean && survey.response !== 'No' )
             },
 
         },
@@ -118,17 +124,22 @@
             alreadyTraveled: [1],
             beneficiaries: [...beneficiaries],
             customer: {...defaultCustomer},
-            survey: [],
+            survey: [...safewaySurvey.default],
             surveyResponse: [],
             invoiceInformation: {...invoiceInformationDefault},
             conditions: false,
+            loading: false,
         }),
-        mounted(){
-            this.survey = [...safewaySurvey.default]
-            this.surveyResponse = [...this.survey.map(survey => ({item: survey.item, response: 'No'}))]
+        async mounted(){
+            await this.getSurvey()
         },
         methods: {
-            nextStep(){
+            async getSurvey(){
+                this.survey = await this.$axios.$get(`${process.env.BASE_URL}/survey`)
+                console.log(this.survey)
+                this.surveyResponse = [...this.survey.map(survey => ({survey_id: survey.survey_id, item: survey.item, response: survey.isBoolean?'No':'', isBoolean: survey.isBoolean}))]
+            },
+            async nextStep(){
                 if(this.validateCustomer()){
                     alert('Disculpe, aún falta información principal de clientes.')
                     return
@@ -143,6 +154,9 @@
                     alert('Disculpe, aún faltan algunos datos de facturación.')
                     return
                 }
+
+                await this.sendClientInformation()
+
                 this.$emit('next')
             },
             backStep(){
@@ -151,22 +165,42 @@
             addBeneficiary(){
                 this.beneficiaries = [...this.beneficiaries, defaultBeneficiary]
             },
+            setBeneficiaryByCustomer(customer){
+                console.log(this.beneficiaries[0], customer)
+                this.beneficiaries[0] = {...this.beneficiaries[0], first_name: customer.first_name, last_name: customer.last_name, address: customer.address}
+                console.log(this.beneficiaries[0], customer)
+            },
             clearBeneficiary(index){
                this.beneficiaries.splice(index, 1)
             },
             validateCustomer(){
-                return !this.customer.names || !this.customer.dni || !this.customer.email
+                return !this.customer.first_name || !this.customer.last_name || !this.customer.identification || !this.customer.email
                     || !this.customer.cellphone || !this.customer.conventional_phone || !this.customer.address
             },
             validateBeneficiaries(){
-                return this.beneficiaries.some(beneficiary => !beneficiary.dni || !beneficiary.names || !beneficiary.age
-                    || !beneficiary.birth_date || !beneficiary.genre || !beneficiary.born_place || !beneficiary.height || !beneficiary.weight)
+                return this.beneficiaries.some(beneficiary => !beneficiary.identification || !beneficiary.first_name || !beneficiary.last_name || !beneficiary.age
+                    || !beneficiary.birth_date || !beneficiary.gender || !beneficiary.place_of_birth || !beneficiary.height || !beneficiary.weight)
             },
             validateInvoiceInformation(){
-                return !this.invoiceInformation.client_to || !this.invoiceInformation.ruc || !this.invoiceInformation.reason_name
-                    || !this.invoiceInformation.email || !this.invoiceInformation.phone_number || !this.invoiceInformation.address
+                return !this.invoiceInformation.ruc || !this.invoiceInformation.business_name
+                    || !this.invoiceInformation.email || !this.invoiceInformation.phone || !this.invoiceInformation.address
+                    || !this.invoiceInformation.type_identifier
             },
-        }
+            async sendClientInformation(){
+                const membership_annexed_ids = this.annexesSelected.map(anx => anx.annexed_id)
+                const info_customer = {...this.customer, plan_membership_id: this.membership.membership_id}
+                const { beneficiaries } = this
+                const survey = this.surveyResponse.map(({survey_id, response, isBoolean}) => ({survey_id, answer_boolean: isBoolean? response === 'Si': null, answer_text: !isBoolean ? response: '' }));
+                const invoice_data = {...this.invoiceInformation}
+                const data = {user_id: 1, membership_annexed_ids, info_customer, beneficiaries, survey, invoice_data}
+                this.loading = true
+                const response = await this.$axios.$post(`${process.env.BASE_URL}/user-customer`, data)
+                this.loading = false
+                console.log(response)
+                return response
+            }
+        },
+        mixins: [userInfoMixin]
     }
 </script>
 <style scoped>

@@ -12,14 +12,17 @@ export default {
 
         ],
     },
-    buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/dotenv',],
+    buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/dotenv', '@nuxtjs/toast',],
     dir: {
         pages: 'pages'
     },
     components: true,
     dev: process.env.NODE_ENV !== 'production',
     target: 'static',
-    plugins: [{ src: '~/plugins/PrettyCheckbox.js', ssr: false }],
+    plugins: [
+        { src: '~/plugins/PrettyCheckbox.js', ssr: false },
+        { src: '~/plugins/vuex-persist', ssr: false }
+        ],
     srcDir: 'src',
     css: [
         '@/assets/css/main.scss',
@@ -30,9 +33,9 @@ export default {
         configPath: '../tailwind.config.js',
     },
     modules: [
-        // Or you can customize
         ['nuxt-buefy', { css: false, materialDesignIcons: false }],
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        '@nuxtjs/toast',
     ],
     env: {
         BASE_URL: process.env.BASE_URL || 'http://localhost:3000'
@@ -40,5 +43,10 @@ export default {
     loading: {
         color: '#3a8e81',
         height: '5px'
+    },
+    toast: {
+        duration: 3000,
+        singleton: true,
+        closeOnSwipe: true
     }
 }

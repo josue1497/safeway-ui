@@ -1,17 +1,20 @@
 export const defaultBeneficiary = {
-    names: '',
-    dni: '',
+    last_name: '',
+    first_name: '',
+    identification: '',
     birth_date: '',
     age: '',
-    genre: '',
-    born_place: '',
+    gender: '',
+    place_of_birth: '',
     height: '',
     weight: '',
 }
 
 export const defaultCustomer = {
-    names: '',
-    dni: '',
+    plan_membership_id: '',
+    last_name: '',
+    first_name: '',
+    identification: '',
     address: '',
     conventional_phone: '',
     email: '',
@@ -19,12 +22,24 @@ export const defaultCustomer = {
 }
 
 export const invoiceInformationDefault = {
-    client_to: '',
-    reason_name: '',
+    is_customer: 0,
+    business_name: '',
     ruc: '',
     email: '',
-    phone_number: '',
+    phone: '',
+    identifier: '',
     address: '',
+    type_identifier: ''
+}
+
+export const defaultUser = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    contactPhone: "",
+    birthDate: "",
+    password: "",
+    identifier: ""
 }
 
 export const beneficiaries = [

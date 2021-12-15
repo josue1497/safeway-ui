@@ -3,7 +3,6 @@
         <div class="w-full flex flex-row">
             <div class="w-full flex flex-row mr-auto">
                 <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-auto"  @click="showOrOpenModal">insert_drive_file</button>
-<!--                <button class="material-icons rounded-full py-1 px-2 bg-primary text-white text-sm ml-3">share</button>-->
             </div>
         </div>
         <h1 class="text-4xl font-bold text-primary text-center mb-2">Plan {{`${plan.name} ${membership.name}`}}</h1>
@@ -31,7 +30,7 @@
             <button class="bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="backStep">Seleccionar otro plan</button>
             <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full"  @click="nextStep">Continuar con la solicitud</button>
         </div>
-        <QuoteModal :visible="modal" v-if="modal" @close="showOrOpenModal"></QuoteModal>
+        <QuoteModal :visible="modal" v-if="modal" @close="showOrOpenModal" @send="sendQuote" :loading="loading"></QuoteModal>
     </div>
 </template>
 
@@ -40,8 +39,10 @@
     import PlanSupplement from '../core/PlanSupplement'
     import airplane from '../../assets/img/viajes.png'
     import travel from '../../assets/img/accidente.png'
-    import { mapState } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
     import QuoteModal from '../core/QuoteModal'
+    import userInfoMixin from '../../mixins/userInfo.mixin'
+
     export default {
         name: 'SecondStep',
         components: { QuoteModal, PlanSupplement, PlanSelector },
@@ -49,8 +50,13 @@
             airplane,
             travel,
             modal: false,
+            loading: false,
         }),
+        mounted(){
+            this.setAnnexesSelected([])
+        },
         methods: {
+            ...mapActions(['setAnnexesSelected']),
             nextStep(){
                 this.$emit('next')
             },
@@ -63,6 +69,22 @@
             },
             showOrOpenModal(){
                 this.modal = !this.modal
+            },
+            async sendQuote(customer){
+                const membership_annexed = this.annexesSelected.map(anx => anx.annexed_id)
+                const data = {...customer, membership_annexed, plan_membership_id: this.membership.membership_id}
+
+                this.loading = true
+                const response = await this.$axios.$post(`${process.env.BASE_URL}/potential-customer`, data, {...this.config} )
+                console.log(response)
+                if(response) {
+                    this.$toast.success('Cotización enviada.')
+                    this.showOrOpenModal()
+                }
+                else this.$toast.error('Error al enviar cotización.')
+
+                this.loading = false
+
             }
         },
         computed: {
@@ -78,8 +100,9 @@
                     totalAnnexes = this.annexesSelected.map(anx => anx.priceUSD).reduce((previousValue, currentValue) => previousValue + currentValue)
                 }
                 return (this.membership.priceUSD + totalAnnexes).toFixed(2)
-            }
+            },
         },
+        mixins: [userInfoMixin]
     }
 </script>
 

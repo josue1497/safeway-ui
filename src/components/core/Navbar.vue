@@ -8,13 +8,14 @@
                     <img
                             class=" h-full w-1/4"
                             src="../../assets/img/logo-1.png"
-                            alt="svelte logo" />
+                            alt="safeway logo logo" />
                 </li>
             </ul>
 
             <!-- to bar right  -->
-            <ul class="flex items-center">
-                <li class="h-auto w-auto">
+            <ul class="flex items-center justify-center">
+                <li class="h-auto w-auto flex flex-row justify-center items-center">
+                    <span class="mr-2">{{ userName }}</span>
                     <span class="material-icons text-primary">account_circle</span>
                 </li>
 
@@ -25,8 +26,10 @@
 </template>
 
 <script>
+    import userInfoMixin from '../../mixins/userInfo.mixin'
     export default {
         name: 'Navbar',
+        mixins: [userInfoMixin],
     }
 </script>
 

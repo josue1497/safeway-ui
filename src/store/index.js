@@ -5,6 +5,9 @@ export const state = () => ({
     annexes: [],
     annexesSelected: [],
     total: 0,
+    user_logged: true,
+    currentUser: {},
+    token: ''
 })
 
 export const mutations = {
@@ -19,6 +22,15 @@ export const mutations = {
     },
     setPlan: (state, plan) => {
         state.plan = {...plan}
+    },
+    setCurrentUser: (state, currentUser) => {
+        state.currentUser = {...currentUser}
+    },
+    setUserLogged: (state, userLogged) => {
+        state.user_logged = userLogged
+    },
+    setToken: (state, token) => {
+        state.token = token
     }
 
 }
@@ -35,5 +47,10 @@ export const actions = {
     },
     setAnnexesSelected({ commit }, value = []) {
         commit('setAnnexesSelected', value)
+    },
+    login({commit}, { user, user_logged, token }){
+        commit('setCurrentUser', user)
+        commit('setUserLogged', user_logged)
+        commit('setToken', token)
     }
 }

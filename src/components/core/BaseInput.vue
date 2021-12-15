@@ -16,7 +16,7 @@
                    :aria-label="label"
                    :name="name"
                    v-if="isNaturalInput"
-                   @input="updateValue"
+                   @input="updateValue($event.target.value)"
             />
             <select class="form-select w-full mt-0
                     block
@@ -29,7 +29,7 @@
                    :aria-label="label"
                    :name="name"
                     v-if="isSelect"
-                    @input="updateValue"
+                    @input="updateValue($event.target.value)"
             >
                 <option value="">Seleccione una opción</option>
                 <option v-for="(option, index) of options" :key="index" :value="option"> {{option}}</option>
@@ -94,18 +94,12 @@
           isNaturalInput(){
               return !this.isSelect && !this.isRadio && !this.isCheck
           },
-          // _value(),
         },
         methods: {
             updateValue(value) {
                 this.$emit('input', value)
             },
         },
-        watch: {
-            value(){
-                console.log(this.value)
-            }
-        }
     }
 </script>
 
