@@ -5,7 +5,7 @@ export const state = () => ({
     annexes: [],
     annexesSelected: [],
     total: 0,
-    user_logged: true,
+    user_logged: false,
     currentUser: {},
     token: ''
 })
