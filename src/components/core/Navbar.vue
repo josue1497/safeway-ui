@@ -14,7 +14,7 @@
 
             <!-- to bar right  -->
             <ul class="flex items-center justify-center">
-                <li class="h-auto w-auto flex flex-row justify-center items-center">
+                <li class="h-auto w-auto flex flex-row justify-center items-center" v-if="this.user_logged">
                     <span class="mr-2">{{ userName }}</span>
                     <span class="material-icons text-primary">account_circle</span>
                 </li>
