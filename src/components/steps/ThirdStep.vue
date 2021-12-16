@@ -27,8 +27,8 @@
                             <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4" v-model="beneficiary.age"></BaseInput>
                             <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.gender"></BaseInput>
                             <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text" class="col-span-4" v-model="beneficiary.place_of_birth"></BaseInput>
-                            <BaseInput name="height" mandatory label="Estatura" type="text" class="col-span-4" v-model="beneficiary.height"></BaseInput>
-                            <BaseInput name="weight" mandatory label="Peso" type="text" class="col-span-4" v-model="beneficiary.weight"></BaseInput>
+                            <BaseInput name="height" mandatory label="Estatura" type="number" class="col-span-4" v-model="beneficiary.height"></BaseInput>
+                            <BaseInput name="weight" mandatory label="Peso" type="number" class="col-span-4" v-model="beneficiary.weight"></BaseInput>
                         </div>
                     </div>
                 </ExpansionPanel>
@@ -137,7 +137,7 @@
             async getSurvey(){
                 this.survey = await this.$axios.$get(`${process.env.BASE_URL}/survey`)
                 console.log(this.survey)
-                this.surveyResponse = [...this.survey.map(survey => ({survey_id: survey.survey_id, item: survey.item, response: survey.isBoolean?'No':'', isBoolean: survey.isBoolean}))]
+                this.surveyResponse = [...this.survey.map(survey => ({survey_id: survey.id, item: survey.item, response: survey.isBoolean?'No':'', isBoolean: survey.isBoolean}))]
             },
             async nextStep(){
                 if(this.validateCustomer()){
@@ -166,9 +166,7 @@
                 this.beneficiaries = [...this.beneficiaries, defaultBeneficiary]
             },
             setBeneficiaryByCustomer(customer){
-                console.log(this.beneficiaries[0], customer)
                 this.beneficiaries[0] = {...this.beneficiaries[0], first_name: customer.first_name, last_name: customer.last_name, address: customer.address}
-                console.log(this.beneficiaries[0], customer)
             },
             clearBeneficiary(index){
                this.beneficiaries.splice(index, 1)
@@ -187,14 +185,14 @@
                     || !this.invoiceInformation.type_identifier
             },
             async sendClientInformation(){
-                const membership_annexed_ids = this.annexesSelected.map(anx => anx.annexed_id)
+                const membership_annexed = this.annexesSelected.map(anx => ( { membership_annexed_id: anx.annexed_id }))
                 const info_customer = {...this.customer, plan_membership_id: this.membership.membership_id}
                 const { beneficiaries } = this
                 const survey = this.surveyResponse.map(({survey_id, response, isBoolean}) => ({survey_id, answer_boolean: isBoolean? response === 'Si': null, answer_text: !isBoolean ? response: '' }));
-                const invoice_data = {...this.invoiceInformation}
-                const data = {user_id: 1, membership_annexed_ids, info_customer, beneficiaries, survey, invoice_data}
+                const invoice = {...this.invoiceInformation, is_customer: this.invoiceInformation.is_customer === 'Cliente'? 1: 0, identifier: this.invoiceInformation.ruc}
+                const data = { user_id: this.currentUser.id, membership_annexed, info_customer, beneficiaries, survey, invoice}
                 this.loading = true
-                const response = await this.$axios.$post(`${process.env.BASE_URL}/user-customer`, data)
+                const response = await this.$axios.$post(`${process.env.BASE_URL}/user-customer`, data, {...this.config})
                 this.loading = false
                 console.log(response)
                 return response

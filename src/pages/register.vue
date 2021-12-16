@@ -82,7 +82,11 @@
                 if(response)  this.$toast.success('Sesión iniciada.')
                 else this.$toast.error('Error al iniciar su sesión.')
 
-                this.login(response? { user: response, user_logged: response.aproveToAccess , token: response.access_token}: {})
+                this.login(response? { user: response, user_logged: response.aproveToAccess === 1 , token: response.access_token}: {})
+
+                if(response.aproveToAccess) {
+                    this.$router.push(`../?step=${this.$route.query.returnStep || 1}`)
+                }
                 this.loadingLogin = false
 
             },

@@ -2,10 +2,10 @@
     <div>
         <div class="container mx-auto px-4" v-if="information.length">
             <FirstStep v-if="currentStep===1" :items="items" :plans="information" @next="setStep(2)"></FirstStep>
-            <SecondStep v-if="currentStep===2" @next="setStep(3)" @back="setStep(1)"></SecondStep>
+            <SecondStep v-if="currentStep===2" @next="validateUser(3)" @back="setStep(1)"></SecondStep>
             <ThirdStep v-if="currentStep===3" @next="setStep(4)" @back="setStep(2)"></ThirdStep>
             <FourthStep v-if="currentStep===4" @back="setStep(3)" @pay="setStep(5)"></FourthStep>
-            <FifthStep v-if="currentStep===5" @reset="setStep(1)"></FifthStep>
+            <FifthStep v-if="currentStep===5" @reset="reset"></FifthStep>
         </div>
         <div  v-else class="container h-screen w-full flex justify-center items-center flex-col">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto; animation-play-state: running; animation-delay: 0s;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
@@ -25,6 +25,8 @@
     import FifthStep from './FifthStep'
 
     import * as safewayData from "../../assets/data/example";
+    import userInfoMixin from '../../mixins/userInfo.mixin'
+
 
     export default {
         name: 'StepsContainer',
@@ -34,22 +36,33 @@
             information: safewayData.default,
         }),
         async mounted() {
-            console.log(this.information)
+            console.log(this.$route.query.step)
             await this.fetchInitialInformation()
+            if(this.$route.query.step)
+                this.setStep(parseInt(this.$route.query.step, 10))
         },
         methods: {
+            reset(){
+                this.$router.push(`/`)
+            },
             setStep(step){
                 this.currentStep = step
             },
             async fetchInitialInformation() {
                 this.information = await this.$axios.$get(`${process.env.BASE_URL}/plan`)
+            },
+            validateUser(step) {
+                if(this.user_logged)
+                    this.setStep(step)
+                else this.$router.push(`/register/?returnStep=${step}`)
             }
         },
         computed: {
             items() {
                return this.information.map(inf => inf.name)
             }
-        }
+        },
+        mixins: [userInfoMixin]
     }
 </script>
 

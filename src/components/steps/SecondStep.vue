@@ -76,7 +76,6 @@
 
                 this.loading = true
                 const response = await this.$axios.$post(`${process.env.BASE_URL}/potential-customer`, data, {...this.config} )
-                console.log(response)
                 if(response) {
                     this.$toast.success('Cotización enviada.')
                     this.showOrOpenModal()

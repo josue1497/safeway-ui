@@ -8,6 +8,7 @@ export const defaultBeneficiary = {
     place_of_birth: '',
     height: '',
     weight: '',
+    identification_type: 'V'
 }
 
 export const defaultCustomer = {
@@ -19,10 +20,11 @@ export const defaultCustomer = {
     conventional_phone: '',
     email: '',
     cellphone: '',
+    identification_type: 'V'
 }
 
 export const invoiceInformationDefault = {
-    is_customer: 0,
+    is_customer: '',
     business_name: '',
     ruc: '',
     email: '',
