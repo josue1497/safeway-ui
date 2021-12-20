@@ -8,10 +8,10 @@
         <h1 class="text-4xl font-bold text-primary text-center mb-2">Plan {{`${plan.name} ${membership.name}`}}</h1>
         <h2 class="text-3xl font-bold text-center mb-2">${{membership.priceUSD}}</h2>
         <h3 class="text-xl font-bold text-primary text-center">{{'Pago Mensual'}}</h3>
-        <div class="py-5 flex flex-row justify-around items-center">
+        <div class="py-5 flex flex-row justify-center items-center">
             <button class="px-5 py-2 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(0)">Condiciones
             </button>
-            <button class="px-5 py-2 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(1)">
+            <button class="px-5 py-2 mx-10 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(1)">
                 Requisitos
             </button>
             <button class="px-5 py-2 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(2)">
