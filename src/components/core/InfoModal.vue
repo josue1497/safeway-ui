@@ -41,5 +41,7 @@
 </script>
 
 <style scoped>
-
+    .list-decimal {
+        list-style-type: decimal;
+    }
 </style>
