@@ -42,7 +42,7 @@
         },
         methods: {
             reset(){
-                this.$router.push(`/`)
+                location.href = '/'
             },
             setStep(step){
                 this.currentStep = step

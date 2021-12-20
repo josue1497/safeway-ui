@@ -9,7 +9,7 @@
                 <BaseInput name="name" mandatory label="Nombres" type="text" class="col-span-6" v-model="customer.first_name"></BaseInput>
                 <BaseInput name="name" mandatory label="Apellidos" type="text" class="col-span-6" v-model="customer.last_name"></BaseInput>
                 <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12" v-model="customer.address"></BaseInput>
-                <BaseInput name="local-number" mandatory label="Teléfono convencional" type="text" class="col-span-4" v-model="customer.conventional_phone"></BaseInput>
+                <BaseInput name="local-number" label="Teléfono convencional" type="text" class="col-span-4" v-model="customer.conventional_phone"></BaseInput>
                 <BaseInput name="phone-number" mandatory label="Telefono celular" type="text" class="col-span-4" v-model="customer.cellphone"></BaseInput>
                 <BaseInput name="email" mandatory label="E-mail" type="text" class="col-span-4" v-model="customer.email"></BaseInput>
             </div>
@@ -173,7 +173,7 @@
             },
             validateCustomer(){
                 return !this.customer.first_name || !this.customer.last_name || !this.customer.identification || !this.customer.email
-                    || !this.customer.cellphone || !this.customer.conventional_phone || !this.customer.address
+                    || !this.customer.cellphone || !this.customer.address
             },
             validateBeneficiaries(){
                 return this.beneficiaries.some(beneficiary => !beneficiary.identification || !beneficiary.first_name || !beneficiary.last_name || !beneficiary.age

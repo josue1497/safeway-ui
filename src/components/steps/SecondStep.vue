@@ -6,8 +6,18 @@
             </div>
         </div>
         <h1 class="text-4xl font-bold text-primary text-center mb-2">Plan {{`${plan.name} ${membership.name}`}}</h1>
-        <h2 class="text-3xl font-bold text-center mb-2">{{membership.priceUSD}}</h2>
+        <h2 class="text-3xl font-bold text-center mb-2">${{membership.priceUSD}}</h2>
         <h3 class="text-xl font-bold text-primary text-center">{{'Pago Mensual'}}</h3>
+        <div class="py-5 flex flex-row justify-around items-center">
+            <button class="px-5 py-2 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(0)">Condiciones
+            </button>
+            <button class="px-5 py-2 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(1)">
+                Requisitos
+            </button>
+            <button class="px-5 py-2 bg-primary text-white hover:bg-secondary trasition-all duration-200 ease-in-out rounded" @click="showInfoModal(2)">
+                Prestación
+            </button>
+        </div>
         <div class="container mx-auto px-4 my-7 flex flex-col justify-center align-center">
             <h3 class="text-lg font-bold text-center">¿Quieres mejorar tu plan?</h3>
             <div class="flex flex-row justify-center items-center">
@@ -16,7 +26,7 @@
                                     :description="annexed.description"
                                     :icon="setIcon(annexed.item)"
                                     :price="annexed.priceUSD"
-                                    :annexed="annexed"></PlanSupplement>
+                                    :annexed="annexed" @more-information="showInfoModal(annexed.item === 1 ? 3 : 4)"></PlanSupplement>
                 </div>
                 <div class="h-40 w-1/3 border border-gray p-10 container flex justify-center items-center flex-col">
                     <p class="text-lg font-regular text-center text-primary mb-3">Total a pagar</p>
@@ -31,6 +41,7 @@
             <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full"  @click="nextStep">Continuar con la solicitud</button>
         </div>
         <QuoteModal :visible="modal" v-if="modal" @close="showOrOpenModal" @send="sendQuote" :loading="loading"></QuoteModal>
+        <InfoModal :visible="infoModal" v-if="infoModal" @close="infoModal=false" :title="infoTitle" :content-text="infoText"></InfoModal>
     </div>
 </template>
 
@@ -42,15 +53,22 @@
     import { mapState, mapActions } from 'vuex'
     import QuoteModal from '../core/QuoteModal'
     import userInfoMixin from '../../mixins/userInfo.mixin'
+    import { benefitText, illnessesaAndAccidents, multiTrips, requirementsText, termsText } from '../../data/constants'
+    import InfoModal from '../core/InfoModal'
 
     export default {
         name: 'SecondStep',
-        components: { QuoteModal, PlanSupplement, PlanSelector },
+        components: { InfoModal, QuoteModal, PlanSupplement, PlanSelector },
         data: () => ({
             airplane,
             travel,
             modal: false,
             loading: false,
+            infoModal: false,
+            infoText: false,
+            infoTitle: false,
+            titles: ['Condiciones', 'Requisitos', 'Prestación', 'ANEXO: MULTIVIAJES', 'ANEXO: ENFERMEDADES Y ACCIDENTES'],
+            texts: [termsText, requirementsText, benefitText, multiTrips, illnessesaAndAccidents]
         }),
         mounted(){
             this.setAnnexesSelected([])
@@ -62,6 +80,11 @@
             },
             backStep(){
                 this.$emit('back')
+            },
+            showInfoModal(index){
+                this.infoTitle = this.titles[index];
+                this.infoText = this.texts[index];
+                this.infoModal = true;
             },
             setIcon(item = 0){
                 if(item === 1) return this.airplane

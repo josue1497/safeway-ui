@@ -85,7 +85,7 @@
                 this.login(response? { user: response, user_logged: response.aproveToAccess === 1 , token: response.access_token}: {})
 
                 if(response.aproveToAccess) {
-                    this.$router.push(`../?step=${this.$route.query.returnStep || 1}`)
+                    this.$router.push(this.$route.query.returnStep?`../?step=${this.$route.query.returnStep}`: '../')
                 }
                 this.loadingLogin = false
 

@@ -13,7 +13,7 @@
                             <div class="text-primary font-bold text-xl mb-2">{{name}}</div>
                             <p class="text-gray-700 text-base">{{description}}</p>
                         </div>
-                        <button class="bg-primary py-1 px-6 hover:bg-secondary text-white rounded-full mt-2">Más información</button>
+                        <button class="bg-primary py-1 px-6 hover:bg-secondary text-white rounded-full mt-2" @click="moreInformation">Más información</button>
                     </div>
                     <div class="flex items-center justify-center w-1/4 flex-col">
                         <p class="text-2xl leading-none">${{price}}</p>
@@ -47,6 +47,9 @@
         },
         methods: {
             ...mapActions(['setAnnexesSelected']),
+            moreInformation(){
+                this.$emit('more-information')
+            }
         },
         watch: {
             selected(){
