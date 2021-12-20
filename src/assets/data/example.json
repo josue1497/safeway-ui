@@ -20,7 +20,7 @@
               "benefit_id": "2",
               "item": 2,
               "name": "Estadía turista",
-              "description": "Estadía en hotel 3 estrellas (Turista)"
+              "description": "Estadía en hotel 3 estrellas <br />(Turista)"
             },
             {
               "benefit_id": "3",
@@ -32,7 +32,7 @@
               "benefit_id": "4",
               "item": 4,
               "name": "Una Tarjeta Smartsim",
-              "description": "Una tarjeta Smartsim (Chip Internacional)"
+              "description": "Una tarjeta Smartsim <br />(Chip Internacional)"
             },
             {
               "benefit_id": "5",
@@ -46,14 +46,14 @@
               "annexed_id": "3",
               "item": 2,
               "name": "Anexo Enfermedades y Accidentes",
-              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce <br />(12) meses.",
               "priceUSD": 14.99
             },
             {
               "annexed_id": "2",
               "item": 1,
               "name": "Anexo Multiviajes",
-              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce <br />(12) meses.",
               "priceUSD": 9.99
             }
           ]
@@ -74,7 +74,7 @@
               "benefit_id": "7",
               "item": 2,
               "name": "Estadía standart",
-              "description": "Estadía en hotel 4 estrellas (Standard Superior)"
+              "description": "Estadía en hotel 4 estrellas <br />(Standard Superior)"
             },
             {
               "benefit_id": "8",
@@ -86,7 +86,7 @@
               "benefit_id": "9",
               "item": 4,
               "name": "Dos Tarjeta Smartsim",
-              "description": "Dos tarjetas Smartsim (Chip Internacional)"
+              "description": "Dos tarjetas Smartsim <br />(Chip Internacional)"
             },
             {
               "benefit_id": "10",
@@ -100,14 +100,14 @@
               "annexed_id": "3",
               "item": 2,
               "name": "Anexo Enfermedades y Accidentes",
-              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce <br />(12) meses.",
               "priceUSD": 24.99
             },
             {
               "annexed_id": "2",
               "item": 1,
               "name": "Anexo Multiviajes",
-              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce <br />(12) meses.",
               "priceUSD": 19.99
             }
           ]
@@ -128,7 +128,7 @@
               "benefit_id": "12",
               "item": 2,
               "name": "Estadía High",
-              "description": "Estadía en hotel 5 estrellas (High Class o Suite Familiar)"
+              "description": "Estadía en hotel 5 estrellas <br />(High Class o Suite Familiar)"
             },
             {
               "benefit_id": "13",
@@ -140,7 +140,7 @@
               "benefit_id": "14",
               "item": 4,
               "name": "Tres Tarjeta Smartsim",
-              "description": "Tres tarjetas Smartsim (Chip Internacional)"
+              "description": "Tres tarjetas Smartsim <br />(Chip Internacional)"
             },
             {
               "benefit_id": "15",
@@ -154,14 +154,14 @@
               "annexed_id": "3",
               "item": 2,
               "name": "Anexo Enfermedades y Accidentes",
-              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce <br />(12) meses.",
               "priceUSD": 34.99
             },
             {
               "annexed_id": "2",
               "item": 1,
               "name": "Anexo Multiviajes",
-              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce <br />(12) meses.",
               "priceUSD": 29.99
             }
           ]
@@ -189,7 +189,7 @@
               "benefit_id": "2",
               "item": 2,
               "name": "Estadía turista",
-              "description": "Estadía en hotel 3 estrellas (Turista)"
+              "description": "Estadía en hotel 3 estrellas <br />(Turista)"
             },
             {
               "benefit_id": "3",
@@ -201,7 +201,7 @@
               "benefit_id": "4",
               "item": 4,
               "name": "Una Tarjeta Smartsim",
-              "description": "Una tarjeta Smartsim (Chip Internacional)"
+              "description": "Una tarjeta Smartsim <br />(Chip Internacional)"
             },
             {
               "benefit_id": "5",
@@ -215,14 +215,14 @@
               "annexed_id": "3",
               "item": 2,
               "name": "Anexo Enfermedades y Accidentes",
-              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce <br />(12) meses.",
               "priceUSD": 14.99
             },
             {
               "annexed_id": "2",
               "item": 1,
               "name": "Anexo Multiviajes",
-              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce <br />(12) meses.",
               "priceUSD": 9.99
             }
           ]
@@ -243,7 +243,7 @@
               "benefit_id": "7",
               "item": 2,
               "name": "Estadía standart",
-              "description": "Estadía en hotel 4 estrellas (Standard Superior)"
+              "description": "Estadía en hotel 4 estrellas <br />(Standard Superior)"
             },
             {
               "benefit_id": "8",
@@ -255,7 +255,7 @@
               "benefit_id": "9",
               "item": 4,
               "name": "Dos Tarjeta Smartsim",
-              "description": "Dos tarjetas Smartsim (Chip Internacional)"
+              "description": "Dos tarjetas Smartsim <br />(Chip Internacional)"
             },
             {
               "benefit_id": "10",
@@ -269,14 +269,14 @@
               "annexed_id": "3",
               "item": 2,
               "name": "Anexo Enfermedades y Accidentes",
-              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce <br />(12) meses.",
               "priceUSD": 24.99
             },
             {
               "annexed_id": "2",
               "item": 1,
               "name": "Anexo Multiviajes",
-              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce <br />(12) meses.",
               "priceUSD": 19.99
             }
           ]
@@ -297,7 +297,7 @@
               "benefit_id": "12",
               "item": 2,
               "name": "Estadía High",
-              "description": "Estadía en hotel 5 estrellas (High Class o Suite Familiar)"
+              "description": "Estadía en hotel 5 estrellas <br />(High Class o Suite Familiar)"
             },
             {
               "benefit_id": "13",
@@ -309,7 +309,7 @@
               "benefit_id": "14",
               "item": 4,
               "name": "Tres Tarjeta Smartsim",
-              "description": "Tres tarjetas Smartsim (Chip Internacional)"
+              "description": "Tres tarjetas Smartsim <br />(Chip Internacional)"
             },
             {
               "benefit_id": "15",
@@ -323,14 +323,14 @@
               "annexed_id": "3",
               "item": 2,
               "name": "Anexo Enfermedades y Accidentes",
-              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará para todas las enfermedades y accidentes que requieran viajar al exterior para llevar a cabo una cirugía, operación o procedimiento quirúrgico por cada periodo de doce <br />(12) meses.",
               "priceUSD": 34.99
             },
             {
               "annexed_id": "2",
               "item": 1,
               "name": "Anexo Multiviajes",
-              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce (12) meses.",
+              "description": "La asistencia se prestará hasta un máximo de tres viajes por beneficiario y por enfermedad por cada periodo de doce <br />(12) meses.",
               "priceUSD": 29.99
             }
           ]

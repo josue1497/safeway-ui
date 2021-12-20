@@ -63,10 +63,10 @@
                     <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12"  v-model="invoiceInformation.address"></BaseInput>
                 </div>
                 <div class="flex justify-center items-center w-full flex-col my-8">
-                    <BaseInput name="agree" v-model="conditions" :label="`<p>El agente declara que asesoró al cliente a fin de que la solicitud y toda la documentación contenga
-                                                    información veraz. La falta de veracidad puede afectar la validez del contrato o el reembolso de los
-                                                    reclamos.</p><br><p> El agente reconoce que el cliente aceptó que actúa por su cuenta y representación en esta
-                                                    transacción. Así como también reconoce que el cliente ha leído y acepta los términos y condiciones</p>`" type="check"></BaseInput>
+                    <BaseInput name="agree" v-model="conditions" 
+                               :label="`<p>Por medio del presente certifico que he leído esta solicitud, que la he llenado conscientemente y que toda la información escrita en este anexo es veraz y exacta y, en consecuencia, ninguno de los beneficiarios ha sido diagnosticado con una condición médica, ni tiene antecedentes o problemas de salud conocidos con anterioridad a la fecha de celebración del contrato, más allá de lo informado en el apartado denominado Información Médica sobre los Beneficiarios. Conozco y acepto que la omisión de declaración de cualquier información que no haya sido revelada o sea inexacta, le da derecho a la Compañía a la falta de prestación del servicio de asistencia o terminación del contrato.</p><br>
+                                        <p>Autorizo a Safeway a solicitar a cualquier clínica, hospital, centro médico o médico tratante la información que considere necesaria sobre nuestro estado de salud y para que acceda a toda la información médica confidencial (pasada, presente y futura) mía y de los beneficiarios. En consecuencia, no será necesario que Safeway solicite autorización ni a mí ni a los beneficiarios cada vez que tenga que acceder a información médica confidencial.</p><br>
+                                        <p>Esta autorización será válida mientras el contrato se mantenga vigente.</p>`" type="check"></BaseInput>
                 </div>
                 <div class="flex justify-start items-start items-start w-full flex-col">
                     <p>(<span class="text-red-600">*</span>) Campos obligatorios</p>

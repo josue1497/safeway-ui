@@ -8,8 +8,8 @@
             </div>
             <div class="px-6 py-2">
                 <div class="font-bold text-center text-sm mb-3">Beneficios</div>
-                <p :class="`text-gray-700 text-sm px-2 py-1 ${index+1 === benefits.length ? '':'border-b'} border-gray-300 text-center`" v-for="(benefit, index) of benefits" :key="index">
-                    {{ benefit }}
+                <p :class="`text-gray-700 text-sm px-2 py-1 ${index+1 === benefits.length ? '':'border-b'} border-gray-300 text-center`"
+                   v-for="(benefit, index) of benefits" :key="index" v-html="benefit">
                 </p>
                 <div :class="`text-primary text-3xl mt-5 text-base border-t  leading-none pt-4 border-primary text-center w-3/4 mx-auto`">
                     <p class="font-regular leading-none ">{{ `$${price}` }}</p>

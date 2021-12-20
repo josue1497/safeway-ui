@@ -33,7 +33,8 @@
         components: { FifthStep, FourthStep, ThirdStep, SecondStep, FirstStep },
         data: () => ({
             currentStep: 1,
-            information: safewayData.default,
+            information: [],
+            // information: safewayData.default,
         }),
         async mounted() {
             await this.fetchInitialInformation()
