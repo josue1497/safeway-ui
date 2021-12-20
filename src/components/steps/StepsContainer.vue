@@ -36,7 +36,6 @@
             information: safewayData.default,
         }),
         async mounted() {
-            console.log(this.$route.query.step)
             await this.fetchInitialInformation()
             if(this.$route.query.step)
                 this.setStep(parseInt(this.$route.query.step, 10))
@@ -49,7 +48,10 @@
                 this.currentStep = step
             },
             async fetchInitialInformation() {
-                this.information = await this.$axios.$get(`${process.env.BASE_URL}/plan`)
+                console.log('Enviando peticion')
+                const information = await this.$axios.$get(`${process.env.BASE_URL}/plan`)
+                console.log(information)
+                this.information = information
             },
             validateUser(step) {
                 if(this.user_logged)
