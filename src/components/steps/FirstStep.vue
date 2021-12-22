@@ -2,16 +2,18 @@
     <div class="container mx-auto px-4 flex flex-col justify-center align-center p-6">
         <h1 class="text-xl font-bold text-primary text-center">Selecciona el plan ideal para ti:</h1>
         <TabSelector :items="items" v-model="current"></TabSelector>
-        <div class="container mx-auto px-4 flex flex-row justify-center align-center mt-5">
-            <PlanSelector v-for="(membership, index) of memberships"
-                          :banner-color="getColorByMembership(membership.name)"
-                          :benefits="membership.benefits.map(benefit => benefit.description)"
-                          :plan-name="membership.name" :price="membership.priceUSD"
-                          :key="index" type="Mensual"
-                          :active="planSelected===membership.item"
-                          @select="setMembershipData(membership)"
-            :gradient="setGradientByMembership(membership.name)"></PlanSelector>
-        </div>
+        <client-only>
+            <div class="container mx-auto px-4 flex flex-row justify-center align-center mt-5">
+                <PlanSelector v-for="(membership, index) of memberships"
+                              :banner-color="getColorByMembership(membership.name)"
+                              :benefits="membership.benefits.map(benefit => benefit.description)"
+                              :plan-name="membership.name" :price="membership.priceUSD"
+                              :key="index" type="Mensual"
+                              :active="planSelected===membership.item"
+                              @select="setMembershipData(membership)"
+                :gradient="setGradientByMembership(membership.name)"></PlanSelector>
+            </div>
+        </client-only>
         <div class="container p-4 flex mt-10">
             <button class="bg-primary text-white hover:bg-secondary transition-all duration-200 ease-in-out mx-auto w-1/4 rounded py-2 rounded-full" @click="nextStep">Continuar con la solicitud</button>
         </div>

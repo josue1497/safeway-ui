@@ -12,6 +12,7 @@ export default {
 
         ],
     },
+    ssr: false,
     buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/dotenv', '@nuxtjs/toast',],
     dir: {
         pages: 'pages'
