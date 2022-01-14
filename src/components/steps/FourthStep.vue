@@ -3,7 +3,7 @@
         <h1 class="text-xl font-bold text-primary text-center">Proceso de Emision</h1>
         <Stepper :steps="steps" :route="alreadyTraveled" :current="3"></Stepper>
         <div class="mx-auto w-3/4">
-            <h3 class="text-lg font-bold">Resumen de pago:</h3>
+            <h3 class="text-lg font-bold">Resumen de Pago:</h3>
             <div class="w-full grid grid-cols-12 mt-5">
                 <div class="col-span-8 bg-primary text-white py-2 px-3 font-bold">Plan y Anexos</div>
                 <div class="col-span-4 bg-primary text-white py-2 px-3 font-bold">Subtotal</div>

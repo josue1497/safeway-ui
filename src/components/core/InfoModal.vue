@@ -8,8 +8,8 @@
             </button>
             <div class="max-h-full">
                 <div class="text-center p-5 flex-auto justify-center">
-                    <h2 class="text-xl font-bold py-4 leading-none text-primary">{{title}}</h2>
-                    <div class="p-6 w-full grid grid-cols-12 gap-4 mt-5 mb-5 text-justify">
+                    <h2 class="text-3xl font-bold py-2 leading-none text-primary">{{title}}</h2>
+                    <div class="p-6 w-full grid grid-cols-12 gap-4 mb-5 text-justify">
                         <div class="col-span-12" v-html="contentText"></div>
                     </div>
 
@@ -40,8 +40,18 @@
     }
 </script>
 
-<style scoped>
-    .list-decimal {
-        list-style-type: decimal;
+<style>
+    ul.safeway-link-ul {
+        list-style: none; /* Remove default bullets */
+    }
+
+    ul.safeway-link-ul li::before {
+        content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        color: #3a8e81; /* Change the color */
+        font-weight: bold; /* If you want it to be bold */
+        display: inline-block; /* Needed to add space between the bullet and the text */
+        width: 1em; /* Also needed for space (tweak if needed) */
+        margin-left: -1em; /* Also needed for space (tweak if needed) */
+        font-size: 24px;
     }
 </style>

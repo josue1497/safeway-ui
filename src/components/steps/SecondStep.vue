@@ -67,7 +67,7 @@
             infoModal: false,
             infoText: false,
             infoTitle: false,
-            titles: ['Condiciones', 'Requisitos', 'Prestación', 'ANEXO: MULTIVIAJES', 'ANEXO: ENFERMEDADES Y ACCIDENTES'],
+            titles: ['Condiciones', 'Requisitos', 'Prestación', 'ANEXO MULTIVIAJES', 'ANEXO ENFERMEDADES Y ACCIDENTES'],
             texts: [termsText, requirementsText, benefitText, multiTrips, illnessesaAndAccidents]
         }),
         mounted(){
