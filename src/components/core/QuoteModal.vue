@@ -7,8 +7,8 @@
             <div class="">
                 <!--body-->
                 <div class="text-center p-5 flex-auto justify-center">
-                    <h2 class="text-xl font-bold py-4 leading-none">Enviar cotización</h2>
-                    <p class="text-sm text-gray-500 px-8">A continuación te llegará un correo electrónico con la información de tu cotizacion.</p>
+                    <h2 class="text-xl font-bold py-4 leading-none">Enviar Cotización</h2>
+                    <p class="text-sm text-gray-500 px-8">A continuación te llegará un correo electrónico con la información de tu cotizacion</p>
                     <div class="p-4 w-full grid grid-cols-12 gap-4 mt-5 mb-5">
                         <BaseInput name="name" mandatory label="Nombres" type="text" class="col-span-6" v-model="customer.first_name"></BaseInput>
                         <BaseInput name="last_name" mandatory label="Apellidos" type="text" class="col-span-6" v-model="customer.last_name"></BaseInput>

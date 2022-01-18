@@ -6,8 +6,8 @@ export const defaultBeneficiary = {
     age: '',
     gender: '',
     place_of_birth: '',
-    height: '',
-    weight: '',
+    height: 0,
+    weight: 0,
     identification_type: 'V'
 }
 

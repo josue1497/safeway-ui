@@ -26,9 +26,9 @@
                             <BaseInput name="birth-date" mandatory label="Fecha de nacimiento" type="date" class="col-span-4" v-model="beneficiary.birth_date"></BaseInput>
                             <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4" v-model="beneficiary.age"></BaseInput>
                             <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.gender"></BaseInput>
-                            <BaseInput name="birth-place" mandatory label="Lugar de nacimiento" type="text" class="col-span-4" v-model="beneficiary.place_of_birth"></BaseInput>
-                            <BaseInput name="height" mandatory label="Estatura" type="number" class="col-span-4" v-model="beneficiary.height"></BaseInput>
-                            <BaseInput name="weight" mandatory label="Peso" type="number" class="col-span-4" v-model="beneficiary.weight"></BaseInput>
+                            <BaseInput name="birth-place" id="input-birth-place" mandatory label="Lugar de nacimiento" type="autocomplete" class="col-span-4" :options="places" v-model="beneficiary.place_of_birth"></BaseInput>
+<!--                            <BaseInput name="height" mandatory label="Estatura" type="number" class="col-span-4" v-model="beneficiary.height"></BaseInput>-->
+<!--                            <BaseInput name="weight" mandatory label="Peso" type="number" class="col-span-4" v-model="beneficiary.weight"></BaseInput>-->
                         </div>
                     </div>
                 </ExpansionPanel>
@@ -38,19 +38,19 @@
                     <span class="ml-3 group-hover:text-white">Añadir beneficiario secundario</span>
                 </button>
             </div>
-            <div class="border-b border-gray-300 p-5"></div>
-            <div class="flex justify-center align-center w-full mt-10 flex-col" v-if="surveyResponse.length">
-                <h3 class="text-lg font-bold uppercase mb-4">INFORMACIÓN MÉDICA SOBRE EL BENEFICIARIO:</h3>
-                <div v-for="(surveyR, index) of survey" class="flex justify-center align-center w-full flex-col">
-                    <MedicalInformation
-                            :key="index" :name="`survey-${surveyR.item}`"
-                            :description="surveyR.description" v-if="surveyR.isBoolean" v-model="surveyResponse[index].response"/>
-                    <div class="flex justify-center items-center w-full flex-col my-2" v-if="!surveyR.isBoolean && showTextArea">
-                        <label for="condition_detail">{{surveyR.description}}</label>
-                        <textarea name="condition_detail" id="condition_detail" rows="5" class="w-full my-2 border border-black" v-model="surveyResponse[index].response"></textarea>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="border-b border-gray-300 p-5"></div>-->
+<!--            <div class="flex justify-center align-center w-full mt-10 flex-col" v-if="surveyResponse.length">-->
+<!--                <h3 class="text-lg font-bold uppercase mb-4">INFORMACIÓN MÉDICA SOBRE EL BENEFICIARIO:</h3>-->
+<!--                <div v-for="(surveyR, index) of survey" class="flex justify-center align-center w-full flex-col">-->
+<!--                    <MedicalInformation-->
+<!--                            :key="index" :name="`survey-${surveyR.item}`"-->
+<!--                            :description="surveyR.description" v-if="surveyR.isBoolean" v-model="surveyResponse[index].response"/>-->
+<!--                    <div class="flex justify-center items-center w-full flex-col my-2" v-if="!surveyR.isBoolean && showTextArea">-->
+<!--                        <label for="condition_detail">{{surveyR.description}}</label>-->
+<!--                        <textarea name="condition_detail" id="condition_detail" rows="5" class="w-full my-2 border border-black" v-model="surveyResponse[index].response"></textarea>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="border-b border-gray-300 p-5"></div>
             <div class="flex justify-center align-center w-full mt-5 flex-col mt-10">
                 <h3 class="text-lg font-bold uppercase">Datos para facturación:</h3>
@@ -123,6 +123,7 @@
             documents: ['Cédula', 'Pasaporte'],
             genre: ['Hombre', 'Mujer'],
             invoiceTo: ['Cliente', 'Otra persona natural o jurídica'],
+            places: ['Quito', 'Guayaquil', 'Manta', 'Machala', 'Ambato'],
             yesno: ['Si', 'No'],
             steps: [1, 2, 3, 4],
             alreadyTraveled: [1],
@@ -181,7 +182,7 @@
             },
             validateBeneficiaries(){
                 return this.beneficiaries.some(beneficiary => !beneficiary.identification || !beneficiary.first_name || !beneficiary.last_name || !beneficiary.age
-                    || !beneficiary.birth_date || !beneficiary.gender || !beneficiary.place_of_birth || !beneficiary.height || !beneficiary.weight)
+                    || !beneficiary.birth_date || !beneficiary.gender || !beneficiary.place_of_birth )
             },
             validateInvoiceInformation(){
                 return !this.invoiceInformation.ruc || !this.invoiceInformation.business_name

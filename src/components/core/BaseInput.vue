@@ -24,10 +24,10 @@
                     px-0.5
                     border-0 border-b-2 border-gray-200
                     focus:ring-0 focus:border-black"
-                   :type="type"
-                   :placeholder="label"
-                   :aria-label="label"
-                   :name="name"
+                    :type="type"
+                    :placeholder="label"
+                    :aria-label="label"
+                    :name="name"
                     v-if="isSelect"
                     @input="updateValue($event.target.value)"
             >
@@ -60,6 +60,40 @@
                     <label :for="name" v-html="label"></label>
                 </div>
             </div>
+            <div class="w-full flex flex-row relative appearance-none bg-transparent border-none text-gray-700 py-1 leading-tight focus:outline-none"
+                 v-if="isAutocomplete"
+            >
+                <div class="relative">
+                    <input class="w-full form-input mt-0
+                    block
+                    w-full
+                    px-0.5
+                    border-0 border-b-2 border-gray-200
+                    focus:ring-0 focus:border-black"
+                           :type="type"
+                           :placeholder="label"
+                           :aria-label="label"
+                           :name="name"
+                           :id="id"
+                           @input="filterOptions($event.target.value)"
+                           autocomplete="off"
+                           @focus="showMenu=true"
+                    />
+                    <div class="absolute top-10 right-0 w-full text-center flex flex-col border shadow-2xl"
+                         v-if="showMenu">
+                        <div v-if="!_options.length">
+                            Sin resultados
+                        </div>
+                        <div class="w-full relative" v-else>
+                            <div class="w-full py-1 text-center bg-white hover:bg-secondary hover:text-white cursor-pointer"
+                                 v-for="(option, index) of _options"
+                                 :key="index" @click="setOption(option)">{{option}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <span class="material-icons" v-if="icon" v-html="icon">
             </span>
         </div>
@@ -71,33 +105,57 @@
     export default {
         name: 'BaseInput',
         props: {
-            icon: { type: String, default: null},
-            label: { type: String, default: null},
-            name: { type: String, default: null},
-            type: { type: String, default: 'text'},
-            mandatory: { type: Boolean, default: false},
-            showLabel: { type: Boolean, default: false},
+            id: { type: String, default: null },
+            icon: { type: String, default: null },
+            label: { type: String, default: null },
+            name: { type: String, default: null },
+            type: { type: String, default: 'text' },
+            mandatory: { type: Boolean, default: false },
+            showLabel: { type: Boolean, default: false },
             value: { type: [String, Number, Boolean], default: null },
-            options: { type: Array, default: () => ([])},
-            border: { type: Boolean, default:true}
+            options: { type: Array, default: () => ([]) },
+            border: { type: Boolean, default: true },
         },
+        data: () => ({
+            showMenu: false,
+            val: '',
+        }),
         computed: {
-          isSelect(){
-              return this.type === 'select'
-          },
-          isRadio(){
-              return this.type === 'radio'
-          },
-          isCheck(){
-              return this.type === 'check'
-          },
-          isNaturalInput(){
-              return !this.isSelect && !this.isRadio && !this.isCheck
-          },
+            isSelect() {
+                return this.type === 'select'
+            },
+            isRadio() {
+                return this.type === 'radio'
+            },
+            isCheck() {
+                return this.type === 'check'
+            },
+            isAutocomplete() {
+                return this.type === 'autocomplete'
+            },
+            isNaturalInput() {
+                return !this.isSelect && !this.isRadio && !this.isCheck && !this.isAutocomplete
+            },
+            _options() {
+                if (this.val) return this.options.filter(opt => opt.toLowerCase().includes(this.val.toLowerCase()))
+
+                return this.options
+            },
         },
         methods: {
             updateValue(value) {
                 this.$emit('input', value)
+                this.showMenu = false
+            },
+            filterOptions(val) {
+                this.val = val
+            },
+            setOption(val = '') {
+                if (val) {
+                    this.updateValue(val)
+                    const el = document.querySelector(`#${this.id}`)
+                    if (el) el.value = val
+                }
             },
         },
     }

@@ -12,7 +12,6 @@
                     <div class="p-6 inner-content w-full grid grid-cols-12 gap-4 mb-5 text-justify">
                         <div class="col-span-12" v-html="contentText"></div>
                     </div>
-
                 </div>
             </div>
         </div>
