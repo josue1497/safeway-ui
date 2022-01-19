@@ -97,7 +97,13 @@
     import MedicalInformation from '../core/MedicalInformation'
     import ExpansionPanel from '../core/ExpansionPanel'
     import { mapState } from 'vuex'
-    import { beneficiaries, defaultBeneficiary, defaultCustomer, invoiceInformationDefault } from '../../data/constants'
+    import {
+        beneficiaries,
+        cities,
+        defaultBeneficiary,
+        defaultCustomer,
+        invoiceInformationDefault,
+    } from '../../data/constants'
     import * as safewaySurvey from "../../assets/data/survey";
     import userInfoMixin from  '../../mixins/userInfo.mixin'
 
@@ -123,7 +129,7 @@
             documents: ['Cédula', 'Pasaporte'],
             genre: ['Hombre', 'Mujer'],
             invoiceTo: ['Cliente', 'Otra persona natural o jurídica'],
-            places: ['Quito', 'Guayaquil', 'Manta', 'Machala', 'Ambato'],
+            places: cities ,
             yesno: ['Si', 'No'],
             steps: [1, 2, 3, 4],
             alreadyTraveled: [1],
