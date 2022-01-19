@@ -26,9 +26,7 @@
                             <BaseInput name="birth-date" mandatory label="Fecha de nacimiento" type="date" class="col-span-4" v-model="beneficiary.birth_date"></BaseInput>
                             <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4" v-model="beneficiary.age"></BaseInput>
                             <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.gender"></BaseInput>
-                            <BaseInput name="birth-place" id="input-birth-place" mandatory label="Lugar de nacimiento" type="autocomplete" class="col-span-4" :options="places" v-model="beneficiary.place_of_birth"></BaseInput>
-<!--                            <BaseInput name="height" mandatory label="Estatura" type="number" class="col-span-4" v-model="beneficiary.height"></BaseInput>-->
-<!--                            <BaseInput name="weight" mandatory label="Peso" type="number" class="col-span-4" v-model="beneficiary.weight"></BaseInput>-->
+                            <BaseInput name="birth-place" id="input-birth-place" mandatory label="Lugar de nacimiento" type="autocomplete" class="col-span-4" :options="places" v-model="beneficiary.place_of_birth" icon="keyboard_arrow_down"></BaseInput>
                         </div>
                     </div>
                 </ExpansionPanel>

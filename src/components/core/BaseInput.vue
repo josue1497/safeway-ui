@@ -1,10 +1,10 @@
 <template>
-    <div :class="`flex items-start py-2 flex-col`">
+    <div :class="`flex items-start py-2 flex-col r`">
         <label :for="name" class="text-primary w-auto break-normal" v-if="isNaturalInput || isSelect || showLabel">
             {{ label }}
             <span class="text-red-600" v-if="mandatory">*</span>
         </label>
-        <div class="flex items-start justify-center w-full">
+        <div class="flex items-start justify-center w-full items-center">
             <input class="w-full form-input mt-0
                     block
                     w-full
@@ -84,7 +84,7 @@
                         <div v-if="!_options.length">
                             Sin resultados
                         </div>
-                        <div class="w-full relative" v-else>
+                        <div class="w-full relative  max-h-56 overflow-y-auto" v-else>
                             <div class="w-full py-1 text-center bg-white hover:bg-secondary hover:text-white cursor-pointer"
                                  v-for="(option, index) of _options"
                                  :key="index" @click="setOption(option)">{{option}}
@@ -94,8 +94,9 @@
                     </div>
                 </div>
             </div>
-            <span class="material-icons" v-if="icon" v-html="icon">
-            </span>
+            <div class="h-full flex items-center">
+                <span class="material-icons" v-if="icon" v-html="icon"></span>
+            </div>
         </div>
 
     </div>
