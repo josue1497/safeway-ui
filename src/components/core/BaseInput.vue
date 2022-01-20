@@ -1,6 +1,7 @@
 <template>
-    <div :class="`flex items-start py-2 flex-col r`">
-        <label :for="name" class="text-primary w-auto break-normal" v-if="isNaturalInput || isSelect || showLabel">
+    <div :class="`flex items-start py-2 flex-col `">
+        <label :for="name" class="text-primary main-label"
+               v-if="isNaturalInput || isSelect || isAutocomplete || showLabel">
             {{ label }}
             <span class="text-red-600" v-if="mandatory">*</span>
         </label>
@@ -78,16 +79,17 @@
                            @input="filterOptions($event.target.value)"
                            autocomplete="off"
                            @focus="showMenu=true"
+                           @blur="blurInput"
                     />
                     <div class="absolute top-10 right-0 w-full text-center flex flex-col border shadow-2xl"
-                         v-if="showMenu">
-                        <div v-if="!_options.length">
+                         v-show="showMenu">
+                        <div v-show="!_options.length">
                             Sin resultados
                         </div>
-                        <div class="w-full relative  max-h-56 overflow-y-auto" v-else>
+                        <div class="w-full relative  max-h-56 overflow-y-auto" v-show="_options.length">
                             <div class="w-full py-1 text-center bg-white hover:bg-secondary hover:text-white cursor-pointer"
                                  v-for="(option, index) of _options"
-                                 :key="index" @click="setOption(option)">{{option}}
+                                 :key="index" @click.prevent="setOption(option)">{{option}}
                             </div>
                         </div>
 
@@ -152,16 +154,25 @@
                 this.val = val
             },
             setOption(val = '') {
+                console.log(val)
                 if (val) {
                     this.updateValue(val)
                     const el = document.querySelector(`#${this.id}`)
                     if (el) el.value = val
                 }
             },
+            blurInput() {
+                setTimeout(() => {
+                    this.showMenu = false
+                }, 100)
+
+            },
         },
     }
 </script>
 
 <style scoped>
-
+    .main-label {
+        min-width: 10vh;
+    }
 </style>
