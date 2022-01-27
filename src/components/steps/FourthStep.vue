@@ -6,7 +6,7 @@
             <h3 class="text-lg font-bold">Resumen de Pago:</h3>
             <div class="w-full grid grid-cols-12 mt-5">
                 <div class="col-span-8 bg-primary text-white py-2 px-3 font-bold">Plan y Anexos</div>
-                <div class="col-span-4 bg-primary text-white py-2 px-3 font-bold">Subtotal</div>
+                <div class="col-span-4 bg-primary text-white py-2 px-3 font-bold">Monto</div>
             </div>
             <div class="w-full grid grid-cols-12">
                 <div class="col-span-8  py-2 px-3 border-b border-r border-gray-500">Plan {{`${plan.name} ${membership.name}`}}</div>
@@ -69,7 +69,7 @@
                 return (this.membership.priceUSD + totalAnnexes).toFixed(2)
             },
             iva(){
-                return (this.total * 0.16).toFixed(2)
+                return (this.total * 0.12).toFixed(2)
             },
             subTotal(){
               return (this.total - this.iva).toFixed(2)

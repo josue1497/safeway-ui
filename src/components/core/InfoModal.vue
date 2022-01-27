@@ -3,7 +3,7 @@
          :style="{background: 'rgb(122,122,122, 0.5)'}" id="modal-id" v-show="visible">
         <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
         <div class="w-1/2 p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white flex">
-            <button class="absolute inset-x-0top-0 right-0 px-5"  @click="close">
+            <button class="absolute inset-x-0top-0 right-0 px-5" @click="close">
                 <span class="text-secondary material-icons">close</span>
             </button>
             <div class="max-h-full">
@@ -20,22 +20,23 @@
 
 <script>
     import BaseInput from './BaseInput'
+
     export default {
         name: 'InfoModal',
         components: { BaseInput },
         props: {
-            visible : {type: Boolean, default: false },
-            title : {type: String, default: 'untitle' },
-            contentText : {type: String, default: 'No text' },
-            },
+            visible: { type: Boolean, default: false },
+            title: { type: String, default: 'untitle' },
+            contentText: { type: String, default: 'No text' },
+        },
         data: () => ({
-            customer: { email: '', first_name:'', last_name: '' , cellphone: '' }
+            customer: { email: '', first_name: '', last_name: '', cellphone: '' },
         }),
         methods: {
-            close(){
+            close() {
                 this.$emit('close')
             },
-        }
+        },
     }
 </script>
 
@@ -45,13 +46,13 @@
     }
 
     ul.safeway-link-ul li::before {
-        content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        content: "\2714"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
         color: #3a8e81; /* Change the color */
         font-weight: bold; /* If you want it to be bold */
         display: inline-block; /* Needed to add space between the bullet and the text */
         width: 1em; /* Also needed for space (tweak if needed) */
         margin-left: -1em; /* Also needed for space (tweak if needed) */
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .inner-content {

@@ -3,30 +3,34 @@
         <h1 class="text-xl font-bold text-primary text-center">Proceso de Emisión</h1>
         <Stepper :steps="steps" :route="alreadyTraveled" :current="2"></Stepper>
         <div class="mx-auto w-3/4">
-            <div class="grid grid-cols-12 gap-4 mt-5 mb-5">
-                <p class="col-span-2 uppercase font-bold col-span-12">Información del cliente:</p>
-                <BaseInput name="dni" mandatory label="Número de cédula" type="text" class="col-span-12" v-model="customer.identification"></BaseInput>
-                <BaseInput name="name" mandatory label="Nombres" type="text" class="col-span-6" v-model="customer.first_name"></BaseInput>
-                <BaseInput name="name" mandatory label="Apellidos" type="text" class="col-span-6" v-model="customer.last_name"></BaseInput>
-                <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12" v-model="customer.address"></BaseInput>
-                <BaseInput name="local-number" label="Teléfono convencional" type="text" class="col-span-4" v-model="customer.conventional_phone"></BaseInput>
-                <BaseInput name="phone-number" mandatory label="Telefono celular" type="text" class="col-span-4" v-model="customer.cellphone"></BaseInput>
-                <BaseInput name="email" mandatory label="E-mail" type="text" class="col-span-4" v-model="customer.email"></BaseInput>
-            </div>
-            <div class="border-b border-gray-300 p-5"></div>
+<!--            <div class="grid grid-cols-12 gap-4 mt-5 mb-5">-->
+<!--                <p class="col-span-2 uppercase font-bold col-span-12">Información del cliente:</p>-->
+<!--                <BaseInput name="dni" mandatory label="Número de cédula" type="text" class="col-span-12" v-model="customer.identification"></BaseInput>-->
+<!--                <BaseInput name="name" mandatory label="Nombres" type="text" class="col-span-6" v-model="customer.first_name"></BaseInput>-->
+<!--                <BaseInput name="name" mandatory label="Apellidos" type="text" class="col-span-6" v-model="customer.last_name"></BaseInput>-->
+<!--                <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12" v-model="customer.address"></BaseInput>-->
+<!--                <BaseInput name="local-number" label="Teléfono convencional" type="text" class="col-span-4" v-model="customer.conventional_phone"></BaseInput>-->
+<!--                <BaseInput name="phone-number" mandatory label="Telefono celular" type="text" class="col-span-4" v-model="customer.cellphone"></BaseInput>-->
+<!--                <BaseInput name="email" mandatory label="E-mail" type="text" class="col-span-4" v-model="customer.email"></BaseInput>-->
+<!--            </div>-->
+<!--            <div class="border-b border-gray-300 p-5"></div>-->
             <div class="mt-10 w-full">
 <!--                <button class="bg-white text-secondary hover:bg-primary hover:text-white border border-primary transition-all duration-200 ease-in-out mx-auto rounded py-2 px-3 rounded mb-2" @click="setBeneficiaryByCustomer(customer)">Traer informacion del cliente</button>-->
                 <ExpansionPanel :title="index === 0 ? 'Información del beneficiario principal:':'Información del beneficiario secundario:'" v-for="(beneficiary, index) of beneficiaries" :key="index"
                                 :show-clear="index>0" @clear="clearBeneficiary(index)">
                     <div class="w-full">
                         <div class="grid grid-cols-12 gap-4 mt-10 mb-5">
-                            <BaseInput name="names" mandatory label="Nombres" type="text" class="col-span-6" v-model="beneficiary.first_name"></BaseInput>
-                            <BaseInput name="names" mandatory label="Apellidos" type="text" class="col-span-6" v-model="beneficiary.last_name"></BaseInput>
                             <BaseInput name="dni" mandatory label="Identificación" type="text"  class="col-span-12" v-model="beneficiary.identification"></BaseInput>
-                            <BaseInput name="birth-date" mandatory label="Fecha de nacimiento" type="date" class="col-span-4" v-model="beneficiary.birth_date"></BaseInput>
-                            <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4" v-model="beneficiary.age"></BaseInput>
-                            <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.gender"></BaseInput>
-                            <BaseInput name="birth-place" id="input-birth-place" mandatory label="Lugar de nacimiento" type="autocomplete" class="col-span-4" :options="places" v-model="beneficiary.place_of_birth" icon="keyboard_arrow_down"></BaseInput>
+                            <BaseInput name="names" mandatory label="Nombres" type="text" class="col-span-6" v-model="beneficiary.first_name"></BaseInput>
+                            <BaseInput name="lastnames" mandatory label="Apellidos" type="text" class="col-span-6" v-model="beneficiary.last_name"></BaseInput>
+                            <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12" v-model="customer.address"></BaseInput>
+                            <BaseInput name="local-number" label="Teléfono convencional" type="text" class="col-span-4" v-model="customer.conventional_phone"></BaseInput>
+                            <BaseInput name="phone-number" mandatory label="Telefono celular" type="text" class="col-span-4" v-model="customer.cellphone"></BaseInput>
+                            <BaseInput name="email" mandatory label="E-mail" type="text" class="col-span-4" v-model="customer.email"></BaseInput>
+                            <BaseInput name="birth-date" mandatory label="Fecha de nacimiento" type="date" class="col-span-6" v-model="beneficiary.birth_date"></BaseInput>
+<!--                            <BaseInput name="age" mandatory label="Edad" type="number" class="col-span-4" v-model="beneficiary.age"></BaseInput>-->
+<!--                            <BaseInput name="genre" mandatory label="Sexo" type="radio" :options="genre" :show-label="true" v-model="beneficiary.gender"></BaseInput>-->
+                            <BaseInput name="birth-place" id="input-birth-place" mandatory label="Lugar de nacimiento" type="autocomplete" class="col-span-6" :options="places" v-model="beneficiary.place_of_birth" icon="keyboard_arrow_down"></BaseInput>
                         </div>
                     </div>
                 </ExpansionPanel>
@@ -61,7 +65,7 @@
                     <BaseInput name="address" mandatory label="Dirección" type="text" class="col-span-12"  v-model="invoiceInformation.address"></BaseInput>
                 </div>
                 <div class="flex justify-center items-center w-full flex-col my-8">
-                    <BaseInput name="agree" v-model="conditions" 
+                    <BaseInput name="agree" v-model="conditions"
                                :label="`<div class='text-justify'>
                                         <p>Por medio del presente certifico que he leído esta solicitud, que la he llenado conscientemente y que toda la información escrita en este anexo es veraz y exacta y, en consecuencia, ninguno de los beneficiarios ha sido diagnosticado con una condición médica, ni tiene antecedentes o problemas de salud conocidos con anterioridad a la fecha de celebración del contrato, más allá de lo informado en el apartado denominado Información Médica sobre los Beneficiarios.</p><br>
                                         <p>Conozco y acepto que la omisión de declaración de cualquier información que no haya sido revelada o sea inexacta, le da derecho a la Compañía a la falta de prestación del servicio de asistencia o terminación del contrato.</p><br>
@@ -149,10 +153,10 @@
                 this.surveyResponse = [...this.survey.map(survey => ({survey_id: survey.id, item: survey.item, response: survey.isBoolean?'No':'', isBoolean: survey.isBoolean}))]
             },
             async nextStep(){
-                if(this.validateCustomer()){
-                    alert('Disculpe, aún falta información principal de clientes.')
-                    return
-                }
+                // if(this.validateCustomer()){
+                //     alert('Disculpe, aún falta información principal de clientes.')
+                //     return
+                // }
 
                 if(this.validateBeneficiaries()){
                     alert('Disculpe, aún falta información referente a sus beneficiarios.')
@@ -185,8 +189,7 @@
                     || !this.customer.cellphone || !this.customer.address
             },
             validateBeneficiaries(){
-                return this.beneficiaries.some(beneficiary => !beneficiary.identification || !beneficiary.first_name || !beneficiary.last_name || !beneficiary.age
-                    || !beneficiary.birth_date || !beneficiary.gender || !beneficiary.place_of_birth )
+                return this.beneficiaries.some(beneficiary => !beneficiary.identification || !beneficiary.first_name || !beneficiary.last_name || !beneficiary.birth_date || !beneficiary.place_of_birth )
             },
             validateInvoiceInformation(){
                 return !this.invoiceInformation.ruc || !this.invoiceInformation.business_name
