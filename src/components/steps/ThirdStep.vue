@@ -158,15 +158,15 @@
                 //     return
                 // }
 
-                if(this.validateBeneficiaries()){
-                    alert('Disculpe, aún falta información referente a sus beneficiarios.')
-                    return
-                }
-
-                if(this.validateInvoiceInformation()){
-                    alert('Disculpe, aún faltan algunos datos de facturación.')
-                    return
-                }
+                // if(this.validateBeneficiaries()){
+                //     alert('Disculpe, aún falta información referente a sus beneficiarios.')
+                //     return
+                // }
+                //
+                // if(this.validateInvoiceInformation()){
+                //     alert('Disculpe, aún faltan algunos datos de facturación.')
+                //     return
+                // }
 
                 await this.sendClientInformation()
 
