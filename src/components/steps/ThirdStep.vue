@@ -168,7 +168,7 @@
                 //     return
                 // }
 
-                await this.sendClientInformation()
+                // await this.sendClientInformation()
 
                 this.$emit('next')
             },
