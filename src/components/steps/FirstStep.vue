@@ -46,9 +46,9 @@
         }),
         computed: {
             planInfo() {
-                if (this.current === 'Individual') return '1 Beneficiario'
+                if (this.current === 'Individual') return '1 beneficiario'
 
-                return '+ de 1 Beneficiario'
+                return '+ de 1 beneficiario'
             },
         },
         methods: {
