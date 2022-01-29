@@ -61,7 +61,7 @@
                     <label :for="name" v-html="label"></label>
                 </div>
             </div>
-            <div class="w-full flex flex-row relative appearance-none bg-transparent border-none text-gray-700 py-1 leading-tight focus:outline-none"
+            <div class="w-full flex flex-row relative appearance-none bg-transparent border-none text-gray-700 leading-tight focus:outline-none"
                  v-if="isAutocomplete"
             >
                 <div class="relative w-full">
