@@ -16,6 +16,7 @@
                    :placeholder="label"
                    :aria-label="label"
                    :name="name"
+                   :id="id"
                    v-if="isNaturalInput"
                    @input="updateValue($event.target.value)"
             />
@@ -28,6 +29,7 @@
                     :type="type"
                     :placeholder="label"
                     :aria-label="label"
+                    :id="id"
                     :name="name"
                     v-if="isSelect"
                     @input="updateValue($event.target.value)"
@@ -143,6 +145,16 @@
                 if (this.val) return this.options.filter(opt => opt.toLowerCase().includes(this.val.toLowerCase()))
 
                 return this.options
+            },
+        },
+        watch: {
+            value(nValue) {
+                console.log(nValue)
+                this.value = nValue
+                const el = document.querySelector(`#${this.id}`)
+                if (el) el.value = nValue
+                this.$emit('input', this.value)
+
             },
         },
         methods: {
