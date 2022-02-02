@@ -11,7 +11,7 @@
                 background: bannerColor,
                 background: gradient,
                 }">
-            <div class="text-3xl font-bold text-center text-white leading-10">Plan {{`${plan.name}
+            <div class="text-3xl font-bold text-center text-white leading-10">Plan {{`${planName}
                 ${membership.name}`}}
             </div>
         </div>
@@ -141,6 +141,11 @@
                     totalAnnexes = this.annexesSelected.map(anx => anx.priceUSD).reduce((previousValue, currentValue) => previousValue + currentValue)
                 }
                 return (this.membership.priceUSD + totalAnnexes).toFixed(2)
+            },
+            planName() {
+                if (this.plan.name.includes('Individual')) return this.plan.name.replace('Individual', '')
+
+                return this.plan.name.replace('Grupal', '')
             },
             bannerColor() {
                 const plan = this.membership.name
