@@ -69,7 +69,7 @@
             <div class="flex justify-center align-center w-full mt-5 flex-col mt-10">
                 <h3 class="text-lg font-bold uppercase">Datos para facturación:</h3>
                 <div class="grid grid-cols-12 gap-4 ">
-                    <BaseInput name="type_identifier" id="type_identifier" mandatory label="Factura a nombre de:"
+                    <BaseInput name="type_identifier" id="type_identifier" mandatory label="Factura a nombre de"
                                type="radio"
                                :options="invoiceTo" :show-label="true" class="col-span-12"
                                v-model="invoiceInformation.type_identifier"></BaseInput>
@@ -93,7 +93,7 @@
                                         <p>Conozco y acepto que la omisión de declaración de cualquier información que no haya sido revelada o sea inexacta, le da derecho a la Compañía a la falta de prestación del servicio de asistencia o terminación del contrato.</p><br>
                                         <p>Autorizo a Safeway a solicitar a cualquier clínica, hospital, centro médico o médico tratante la información que considere necesaria sobre nuestro estado de salud y para que acceda a toda la información médica confidencial (pasada, presente y futura) mía y de los beneficiarios.</p><br>
                                         <p>En consecuencia, no será necesario que Safeway solicite autorización ni a mí ni a los beneficiarios cada vez que tenga que acceder a información médica confidencial.</p><br>
-                                        <p>Esta autorización será válida mientras el contrato se mantenga vigente.</p>
+                                        <p><b>Esta autorización será válida mientras el contrato se mantenga vigente.</b></p>
                                         </div>`" type="check"></BaseInput>
                 </div>
                 <div class="flex justify-start items-start items-start w-full flex-col">
@@ -186,7 +186,7 @@
             },
             async nextStep() {
                 if(this.validateCustomer()){
-                    alert('Disculpe, aún falta información principal de clientes.')
+                    alert('Disculpe, aún falta información .')
                     return
                 }
 

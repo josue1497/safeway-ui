@@ -70,19 +70,19 @@
                 annexesSelected: state => state.annexesSelected,
             }),
             total() {
-                console.log('this.subTotal', this.subTotal)
-                console.log('this.iva', this.iva)
-                return (this.subTotal + this.iva).toFixed(2)
+                return parseFloat((this.subTotal + this.iva).toString()).toFixed(2)
             },
             iva() {
-                return parseFloat((this.subTotal * 0.12).toFixed(2))
+                return parseFloat((this.subTotal * 0.12).toString()).toFixed(2)
             },
             subTotal() {
-                let totalAnnexes = 0
+                let totalAnnexes = 0.00
                 if (this.annexesSelected.length) {
                     totalAnnexes = this.annexesSelected.map(anx => anx.priceUSD).reduce((previousValue, currentValue) => previousValue + currentValue)
                 }
-                return (this.membership.priceUSD + totalAnnexes)
+                const result = this.membership.priceUSD + totalAnnexes
+                console.log(result)
+                return result.toFixed(2)
             },
         },
         methods: {
