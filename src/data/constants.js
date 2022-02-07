@@ -49,13 +49,13 @@ export const beneficiaries = [
 ]
 
 export const requirementsText = `
-    <p class="mb-2 font-bold">El cliente deberá remitir a SAFEWAY las siguiente documentación:</p>
+    <p class="mb-2 font-bold">El cliente deberá remitir a Safeway la siguiente documentación:</p>
     <ul class="safeway-link-ul ml-10 mb-10">
         <li class="mb-3">Solicitud de acceso a la prestación del servicio de asistencia. </li>
         <li class="mb-3">Copia del primer reclamo presentado a la compañía de seguros. </li>
         <li class="mb-3">Carta de garantía hospitalaria emitida por la respectiva compañía de seguros.</li>
     </ul>
-    <p class="text-primary text-center text-sm mt-5">* <b>Nota:</b> el servicio de asistencia se prestará siempre y cuando se cumplan todas las condiciones establecidas en las cláusulas V del contrato.</p>
+    <p class="text-primary text-center text-sm mt-5">* El servicio de asistencia se prestará siempre y cuando se cumplan todos los requisitos establecidos en la cláusula Quinta del contrato.</p>
 `
 
 export const termsText = `
@@ -69,7 +69,7 @@ export const termsText = `
     <li class="mb-3">El servicio de asistencia se prestará por <strong>una sola vez por beneficiario y por enfermedad</strong> durante la vigencia del contrato y cualquiera de sus renovaciones. No obstante, el servicio se podrá prestar para el mismo beneficiario para el tratamiento en el exterior de las otras enfermedades críticas.</li>
     <li class="mb-3">El cliente <strong>deberá estar al día en sus pagos</strong> al momento de solicitar la prestación del servicio.</li>
 </ul>    
-<p class="text-primary text-center text-sm">* El servicio de asistencia se prestará siempre y cuando se cumplan todas las condiciones establecidas en la cláusula cuarta del contrato.</p>
+<p class="text-primary text-center text-sm">* El servicio de asistencia se prestará siempre y cuando se cumplan todas las condiciones establecidas en la cláusula Cuarta del contrato.</p>
 `
 
 export const benefitText = `
@@ -81,7 +81,7 @@ export const benefitText = `
     <li class="mb-3">En caso de que <strong>el cliente quiera realizar cualquier cambio,</strong> Safeway lo pondrá en contacto con la agencia de viajes encargada y cualquier valor adicional que se deba pagar por los cambios solicitados<strong> será de cuenta exclusiva del cliente.</strong> Safeway únicamente estará obligada a proporcionar los beneficios que constan en el plan escogido y contratado por el cliente.</li>
     <li class="mb-3">Una vez aprobado el itinerario por el cliente, <strong>Safeway procederá al pago de los pasajes aéreos, alojamiento y movilización</strong> y las reservas se harán a nombre de la/s persona/s solicitada/s por el cliente, y entregará al mismo toda la documentación necesaria para el viaje.</li>
 </ul>
-<p class="mt-2 text-primary text-center text-sm">* El servicio de asistencia se prestará de acuerdo a lo estipulado en la cláusula VI del contrato.</p>
+<p class="mt-2 text-primary text-center text-sm">* El servicio de asistencia se prestará de acuerdo a lo estipulado en la cláusula Sexta del contrato.</p>
 `
 
 export const multiTrips = `
