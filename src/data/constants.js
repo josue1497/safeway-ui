@@ -73,7 +73,7 @@ export const termsText = `
 `
 
 export const benefitText = `
-<p class="mb-3 font-bold">Una vez que SAFEWAY verifique que se cumple todas las condiciones y requisitos del contrato, se llevará a cabo el siguiente procedimiento:</p>
+<p class="mb-3 font-bold">Una vez que SAFEWAY verifique que se cumplen todas las condiciones y requisitos del contrato, se llevará a cabo el siguiente procedimiento:</p>
 <ul class="safeway-link-ul ml-10  mb-10">
     <li class="mb-3">El cliente enviará a Safeway el<strong> “formulario de confirmación de viaje al exterior”</strong> en el que constará la información del beneficiario que viajará a atenderse, al igual que la de el/los acompañante/s que viajarán, así como las fechas del viaje, dirección del hospital, datos para las reservas de hotel y vehículo, etc.</li>
     <li class="mb-3">Una vez recibido dicho formulario, <strong>Safeway gestionará la reservas de los vuelos, hotel y vehículo</strong> de acuerdo a las características del plan contratado por el cliente y en función de las fechas de viaje facilitadas por este.</li>
